@@ -1,0 +1,11 @@
+version: '3'
+services:
+  cadastro-db:
+    image: mongo:3.4
+  cadastro-api:
+    image: node:10.7
+    volumes: 
+      - ./cadastro:/cadastro
+    ports:
+      - 3000:3000
+    command: bash -c "cd /cadastro && npm i && node server"

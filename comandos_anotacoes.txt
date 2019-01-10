@@ -1,0 +1,9 @@
+NodeJS
+criar arquivo descritor no inicio do projeto
+	npm init -y
+	
+instalar dependencias para criar api no node
+	npm i --save express@4.15.3 mongoose@4.11.1 node-restful@0.2.6 body-parser@1.17.2 cors@2.8.3
+	
+executar compose docker
+	docker-compose up
