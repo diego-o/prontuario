@@ -1,55 +1,31 @@
 'use strict'
 
-const app = require('./src/app');
-const debug = require('debug')('nodestr:server');
-const http = require('http');
+var http = require('http');
+const express = require('express');
+const httpProxy = require('express-http-proxy');
+const app = express();
 
-const port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+const ServiceCadastroColaborador = httpProxy('http://cadastro-colaborador-api:3001');
+const ServiceCadastroPaciente = httpProxy('http://cadastro-paciente-api:3002');
 
-const server = http.createServer(app);
+app.get('/colaborador', (req, res, next) => {
+    ServiceCadastroColaborador(req, res, next);
+});
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
-console.log('API Cadastro rodando na porta ' + port); 
+app.get('/paciente', (req, res, next) => {
+    ServiceCadastroPaciente(req, res, next);
+});
 
-function normalizePort(value){
-    const port = parseInt(value, 10);
-    if (isNaN(port)) {
-        return value;
-    }
-    
-    if (port >= 0){
-        return port;
-    }
+app.get('/', (req, res, next) => {
+    res.status(200).send({
+        title: "API de Gateway do Prontuário Eletrônico",
+        version: "1.0.0.0"
+    })
+});
 
-    return false;
-}
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-function onError(error){
-    if(error.syscall !== 'listen'){
-        throw error;
-    }
-
-    const bind = typeof port == 'string' ? 'Pipe ' + port : 'Port ' + port;
-
-    switch (error.code){
-        case 'EACCES':
-            console.error(bind + ' requires elevated probileges');
-            process.exit(1);
-            breask;
-        case 'EADDRIUSE':
-            console.error(bind + ' is already in use');
-            process.exit(1);
-            break;
-        default:
-            throw error;
-    }
-}
-
-function onListening(){
-    const addr = server.address();
-    const bind  = typeof addr == 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-    debug('Listening on ' + bind);
-}
+var server = http.createServer(app);
+server.listen(3000);
+console.log('API Gateway rodando na porta 3000');

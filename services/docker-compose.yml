@@ -1,11 +1,38 @@
-version: '3'
+version: '3.7'
+networks: 
+  api:
 services:
-  cadastro-db:
-    image: mongo:3.4
-  cadastro-api:
+  gateway-api:
     image: node:10.7
-    volumes: 
-      - ./cadastro:/cadastro
+    volumes:
+      - ./gateway:/gateway
     ports:
       - 3000:3000
-    command: bash -c "cd /cadastro && npm i && node server"
+    command: bash -c "cd /gateway && npm i && node server"
+    networks: 
+      - api
+    depends_on:
+      - cadastro-colaborador-api
+      - cadastro-paciente-api
+  cadastro-colaborador-db:
+    image: mongo:3.4
+  cadastro-colaborador-api:
+    image: node:10.7
+    volumes:
+      - ./cadastro-colaborador:/cadastro-colaborador
+    ports:
+      - 3001:3000
+    command: bash -c "cd /cadastro-colaborador && npm i && node server"
+    networks: 
+      - api
+  cadastro-paciente-db:
+    image: mongo:3.4
+  cadastro-paciente-api:
+    image: node:10.7
+    volumes: 
+      - ./cadastro-paciente:/cadastro-paciente
+    ports:
+      - 3002:3000
+    command: bash -c "cd /cadastro-paciente && npm i && node server"
+    networks: 
+      - api

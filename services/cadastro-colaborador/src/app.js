@@ -7,8 +7,8 @@ const mongoose = require('mongoose');
 const app = express();
 
 //conexão com banco de dados
-//mongoose.connect('mongodb://cadastro-db/base-cadastro');
-mongoose.connect('mongodb://diego:diego123@ds153314.mlab.com:53314/cadastro');
+mongoose.connect('mongodb://cadastro-colaborador-db/base-cadastro-colaborador');
+//mongoose.connect('mongodb://diego:diego123@ds153314.mlab.com:53314/cadastro');
 
 
 //carregando os models

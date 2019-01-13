@@ -7,3 +7,5 @@ instalar dependencias para criar api no node
 	
 executar compose docker
 	docker-compose up
+
+	docker network inspect networkname
