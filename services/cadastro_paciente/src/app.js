@@ -16,13 +16,11 @@ mongoose.connect('mongodb://diego:diego123@ds255784.mlab.com:55784/cadastro-paci
 const Paciente = require('./models/PacienteModel');
 
 //carregando as rotas
-const indexRoute = require('./routes/IndexRoute');
 const pacienteRoute = require('./routes/PacienteRoute');
+
+app.use('/paciente', pacienteRoute);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-
-app.use('/', indexRoute);
-app.use('/paciente', pacienteRoute);
 
 module.exports = app;
