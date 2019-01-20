@@ -5,8 +5,8 @@ const express = require('express');
 const httpProxy = require('express-http-proxy');
 const app = express();
 
-const ServiceCadastroOrganizacao = httpProxy('http://cadastro-organizacao-api:3001');
-const ServiceCadastroPaciente = httpProxy('http://cadastro-paciente-api:3002');
+const ServiceCadastroOrganizacao = httpProxy('http://cadastro_organizacao_api:3001');
+const ServiceCadastroPaciente = httpProxy('http://cadastro_paciente_api:3002');
 
 app.get('/organizacao', (req, res, next) => {
     ServiceCadastroOrganizacao(req, res, next);

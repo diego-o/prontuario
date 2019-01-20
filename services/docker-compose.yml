@@ -12,27 +12,27 @@ services:
     networks: 
       - api
     depends_on:
-      - cadastro-organizacao-api
-      - cadastro-paciente-api
-  cadastro-organizacao-db:
+      - cadastro_organizacao_api
+      - cadastro_paciente-_pi
+  cadastro_organizacao_db:
     image: mongo:3.4
-  cadastro-organizacao-api:
+  cadastro_organizacao_api:
     image: node:10.7
     volumes:
-      - ./cadastro-organizacao:/cadastro-organizacao
+      - ./cadastro_organizacao:/cadastro_organizacao
     ports:
       - 3001:3000
-    command: bash -c "cd /cadastro-organizacao && npm i && node server"
+    command: bash -c "cd /cadastro_organizacao && npm i && node server"
     networks: 
       - api
-  cadastro-paciente-db:
+  cadastro_paciente_db:
     image: mongo:3.4
-  cadastro-paciente-api:
+  cadastro_paciente_api:
     image: node:10.7
     volumes: 
-      - ./cadastro-paciente:/cadastro-paciente
+      - ./cadastro_paciente:/cadastro_paciente
     ports:
       - 3002:3000
-    command: bash -c "cd /cadastro-paciente && npm i && node server"
+    command: bash -c "cd /cadastro_paciente && npm i && node server"
     networks: 
       - api

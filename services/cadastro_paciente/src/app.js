@@ -10,7 +10,7 @@ const app = express();
 mongoose.connect('mongodb://diego:diego123@ds255784.mlab.com:55784/cadastro-paciente', { useNewUrlParser: true });
 
 //usar com Docker
-//mongoose.connect('mongodb://cadastro-paciente-db/base-cadastro-paciente');
+//mongoose.connect('mongodb://cadastro_paciente_db/base_cadastro_paciente');
 
 //carregando os models
 const Paciente = require('./models/paciente-model');
