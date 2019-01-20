@@ -5,11 +5,11 @@ const express = require('express');
 const httpProxy = require('express-http-proxy');
 const app = express();
 
-const ServiceCadastroColaborador = httpProxy('http://cadastro-colaborador-api:3001');
+const ServiceCadastroOrganizacao = httpProxy('http://cadastro-organizacao-api:3001');
 const ServiceCadastroPaciente = httpProxy('http://cadastro-paciente-api:3002');
 
-app.get('/colaborador', (req, res, next) => {
-    ServiceCadastroColaborador(req, res, next);
+app.get('/organizacao', (req, res, next) => {
+    ServiceCadastroOrganizacao(req, res, next);
 });
 
 app.get('/paciente', (req, res, next) => {

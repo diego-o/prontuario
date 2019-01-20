@@ -1,0 +1,206 @@
+SERVIÇO CADASTRO DE PACIENTE
+
+Paciente {
+    _id 
+    foto
+    nome
+    cpf
+    rg
+    carteiraSus
+    sexo
+    dataNascimento
+    dataObito
+    tipoSanguineo
+    telefone
+    email
+    pai {
+        nome
+        cpf
+        telefone
+    }
+    mae {
+        nome
+        cpf
+        telefone
+    }
+    endereco {
+        nascimento {
+            cep
+            logradouro
+            numero
+            bairro
+            municipio
+            uf
+        }
+        atual {
+            cep
+            logradouro
+            numero
+            bairro
+            municipio
+            uf
+        }
+    }
+}    
+------------------------------------------------------------------------------
+
+SERVIÇO CADASTRO ORGANIZAÇÃO
+
+TipoOrganizacao {
+    _id
+    tipo
+    descricao
+}
+
+Organizacao {
+    _id
+    cnpj
+    razao
+    fantasia    
+    inscricaoEstadual
+    inscricaoMunicipal
+    site
+    endereco {
+        cep
+        logradouro
+        numero
+        bairro
+        municipio
+        uf
+    }
+    contato {
+        telefone ["",""]
+        email
+    }
+    logo
+}
+
+Medico {
+    _id
+    crm
+    nome
+    cpf
+    endereco {
+        cep
+        logradouro
+        numero
+        bairro
+        municipio
+        uf
+    }
+    contato {
+        telefone ["",""]
+        email 
+    }
+}
+
+Enfermeiro {
+    _id
+    nome
+    cpf
+    coren {
+        numero
+        estado
+    }
+    endereco {
+        cep
+        logradouro
+        numero
+        bairro
+        municipio
+        uf
+    }
+    contato {
+        telefone ["",""]
+        email 
+    }
+}
+------------------------------------------------------------------------------
+
+SERVIÇO DE CARTEIRA DE VACINA
+
+Vacina {
+    _id
+    nome
+    descricao
+}
+
+Carteira {
+    _id
+    Paciente {
+        idPaciente (do serviço de cadastro de paciente)
+        nome
+        carteiraSus
+        cpf
+    }
+    Vacinas [
+        {
+            Vacina 
+            dataPrevista
+            dataAplicacao
+            Organizacao {
+                idOrganizacao (do cadastro de serviço de organização)
+                nome
+                cnpj
+            }
+            Enfermeiro {
+                idEnfermeiro (do cadastro dr serviço  de organização)
+                nome
+                coren
+            }
+        }
+    ]
+}
+------------------------------------------------------------------------------
+
+SERVIÇO DE PRONTUÁRIO
+
+TipoAtendimento {
+    _id
+    tipo
+    descricao
+}
+
+StatusAtendimento {
+    _id
+    status
+    descricao
+}
+
+Atendimento {
+    _id
+    numero
+    Pacinete {
+        idPaciente (do serviço de cadastro de paciente)
+        nome
+        carteiraSus
+        cpf
+    }
+    TipoAtendimento
+    Organizacao{
+        idOrganizacao (do serviço de cadastro de organização)
+        nome
+        cnpj
+    }
+    dataPrevista
+    dataAtendimento    
+    cid
+    Status
+    descricao
+    anexos ["",""]    
+}
+------------------------------------------------------------------------------
+
+SERVIÇO DE GATEWAY
+
+TipoAcesso {
+    _id
+    tipo
+}
+
+Acesso {
+    _id
+    TipoAcesso
+    login
+    senha
+}

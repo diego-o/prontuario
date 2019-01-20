@@ -12,17 +12,17 @@ services:
     networks: 
       - api
     depends_on:
-      - cadastro-colaborador-api
+      - cadastro-organizacao-api
       - cadastro-paciente-api
-  cadastro-colaborador-db:
+  cadastro-organizacao-db:
     image: mongo:3.4
-  cadastro-colaborador-api:
+  cadastro-organizacao-api:
     image: node:10.7
     volumes:
-      - ./cadastro-colaborador:/cadastro-colaborador
+      - ./cadastro-organizacao:/cadastro-organizacao
     ports:
       - 3001:3000
-    command: bash -c "cd /cadastro-colaborador && npm i && node server"
+    command: bash -c "cd /cadastro-organizacao && npm i && node server"
     networks: 
       - api
   cadastro-paciente-db:
