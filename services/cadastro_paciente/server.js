@@ -4,7 +4,7 @@ const app = require('./src/app');
 const debug = require('debug')('nodestr:server');
 const http = require('http');
 
-const port = normalizePort(process.env.PORT || '3002');
+const port = process.env.PORT || 3002;
 app.set('port', port);
 
 const server = http.createServer(app);
@@ -12,20 +12,7 @@ const server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-console.log('API Cadastro rodando na porta ' + port); 
-
-function normalizePort(value){
-    const port = parseInt(value, 10);
-    if (isNaN(port)) {
-        return value;
-    }
-    
-    if (port >= 0){
-        return port;
-    }
-
-    return false;
-}
+console.log('API Cadastro Paciente rodando na porta ' + port); 
 
 function onError(error){
     if(error.syscall !== 'listen'){

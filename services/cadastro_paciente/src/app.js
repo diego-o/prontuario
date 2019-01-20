@@ -13,11 +13,11 @@ mongoose.connect('mongodb://diego:diego123@ds255784.mlab.com:55784/cadastro-paci
 //mongoose.connect('mongodb://cadastro_paciente_db/base_cadastro_paciente');
 
 //carregando os models
-const Paciente = require('./models/paciente-model');
+const Paciente = require('./models/PacienteModel');
 
 //carregando as rotas
-const indexRoute = require('./routes/index-route');
-const pacienteRoute = require('./routes/paciente-route');
+const indexRoute = require('./routes/IndexRoute');
+const pacienteRoute = require('./routes/PacienteRoute');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));

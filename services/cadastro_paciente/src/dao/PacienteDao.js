@@ -3,13 +3,14 @@
 const mongoose = require('mongoose');
 const Paciente = mongoose.model('Paciente');
 
-exports.create = async (p) => {
+exports.Insert = async (p) => {
     var paciente = new Paciente(p);
     await paciente.save();
+    return paciente;
 }
 
-exports.update = async(id, pac) => {
-    await Paciente.findOneAndUpdate(id, {
+exports.Update = async(id, pac) => {
+    return await Paciente.findOneAndUpdate(id, {
         $set:{
             dataObito: pac.dataObito,
             telefone: pac.telefone,
