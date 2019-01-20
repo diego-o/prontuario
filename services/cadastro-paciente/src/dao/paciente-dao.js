@@ -8,7 +8,34 @@ exports.create = async (p) => {
     await paciente.save();
 }
 
+exports.update = async(id, pac) => {
+    await Paciente.findOneAndUpdate(id, {
+        $set:{
+            dataObito: pac.dataObito,
+            telefone: pac.telefone,
+            rg: pac.rg,
+            "endereco.atual.cep" : pac.endereco.atual.cep,
+            "endereco.atual.logradouro" : pac.endereco.atual.logradouro,
+            "endereco.atual.numero" : pac.endereco.atual.numero,
+            "endereco.atual.bairro" : pac.endereco.atual.bairro,
+            "endereco.atual.municipio" : pac.endereco.atual.municipio,
+            "endereco.atual.uf" : pac.endereco.atual.uf
+        }
+    });
+}
+
 exports.getByCpf = async (cpf) => {
-    const res = await Paciente.findOne({ cpf: cpf }, '');
-    return res;
+    return await Paciente.findOne({ cpf: cpf }, '');
+}
+
+exports.getByCarteiraSus = async (carteiraSus) => {
+    return await Paciente.findOne({carteiraSus: carteiraSus}, '');
+}
+
+exports.getByCpfMae = async (cpfMae) => {
+    return await Paciente.find({"mae.cpf" : cpfMae}, '');
+}
+
+exports.getByCpfPai = async (cpfPai) => {
+    return await Paciente.find({"pai.cpf" : cpfPai}, '');
 }

@@ -16,6 +16,11 @@ const schema = new Schema({
     rg: {
         type: String
     },
+    carteiraSus:{
+        type: String,
+        required: true,
+        unique: true
+    },
     sexo: {
         type: String,
         required: true,
@@ -34,10 +39,16 @@ const schema = new Schema({
     },
     pai: {
         nome: {
-            type: String
+            type: String,
+            require: true
         },
         cpf: {
-            type: String
+            type: String,
+            require: true
+        },
+        telefone: {
+            type: String,
+            require: true
         }
     },
     mae: {
@@ -48,6 +59,10 @@ const schema = new Schema({
         cpf: {
             type: String,
             required: true
+        },
+        telefone: {
+            type: String,
+            require: true
         }
     },
     endereco: {
