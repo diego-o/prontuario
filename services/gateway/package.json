@@ -1,20 +1,25 @@
 {
-  "name": "gateway",
+  "name": "cadastro",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon ./server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4",
-    "express-http-proxy": "^1.5.0",
-    "helmet": "^3.15.0",
+    "cookie-parser": "^1.4.3",
+    "body-parser": "^1.18.3",
+    "express-http-proxy": "^1.2.0",
+    "debug": "^3.1.0",
+    "express": "^4.16.3",
     "http": "0.0.0",
-    "morgan": "^1.9.1"
+    "mongoose": "^5.2.5",
+    "helmet": "^3.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
   }
 }

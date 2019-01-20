@@ -4,6 +4,7 @@ var http = require('http');
 const express = require('express');
 const httpProxy = require('express-http-proxy');
 const app = express();
+var port = process.env.PORT || 3000;
 
 const ServiceCadastroOrganizacao = httpProxy('http://cadastro_organizacao_api:3001');
 const ServiceCadastroPaciente = httpProxy('http://cadastro_paciente_api:3002');
@@ -27,5 +28,5 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 var server = http.createServer(app);
-server.listen(3000);
-console.log('API Gateway rodando na porta 3000');
+server.listen(port);
+console.log('API Gateway rodando na porta ' + port);
