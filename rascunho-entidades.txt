@@ -73,6 +73,7 @@ Organizacao {
         email
     }
     logo
+    ativo
 }
 
 Medico {
@@ -92,6 +93,7 @@ Medico {
         telefone ["",""]
         email 
     }
+    ativo
 }
 
 Enfermeiro {
@@ -114,6 +116,26 @@ Enfermeiro {
         telefone ["",""]
         email 
     }
+    ativo
+}
+
+Agente {
+    _id
+    nome
+    cpf
+    endereco {
+        cep
+        logradouro
+        numero
+        bairro
+        municipio
+        uf
+    }
+    contato {
+        telefone ["",""]
+        email 
+    }
+    ativo
 }
 ------------------------------------------------------------------------------
 
