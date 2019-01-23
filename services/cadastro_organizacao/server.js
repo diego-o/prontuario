@@ -6,14 +6,14 @@ var port = process.env.PORT || 3001;
 
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-//var Manager = require('./config');
+var Manager = require('./config');
 
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 
-//Manager.addRoute(server, Manager.appConfig.Paciente);
-//Manager.configDB(mongoose);
+Manager.addRoute(server, Manager.appConfig.Paciente);
+Manager.configDB(mongoose);
 
 server.listen(port, function() {
-   console.log('Serviço Cadastro de Organização rodando na porta ' + port); 
+    console.log('Serviรงo Cadastro de Organização rodando na porta ' + port);
 });
