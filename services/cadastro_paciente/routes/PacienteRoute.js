@@ -1,12 +1,13 @@
 'use strict';
 
 module.exports = function(app) {
-    var PacienteController = require ('../controller/PacienteController');
+    var PacienteController = require('../controller/PacienteController');
 
     app.route('/paciente').post(PacienteController.Insert);
     app.route('/paciente/:id').put(PacienteController.Update);
-    
-    app.route('/paciente/:cpf').get(PacienteController.GetByCpf);   
+    app.route('/paciente/:id').get(PacienteController.GetById);
+
+    app.route('/paciente/cpf/:cpf').get(PacienteController.GetByCpf);
     app.route('/paciente/carteirasus/:carteiraSus').get(PacienteController.GetByCarteiraSus);
     app.route('/paciente/cpfmae/:cpfMae').get(PacienteController.GetByCpfMae);
     app.route('/paciente/cpfpai/:cpfPai').get(PacienteController.GetByCpfPai);
@@ -19,4 +20,3 @@ module.exports = function(app) {
         })
     });
 }
-
