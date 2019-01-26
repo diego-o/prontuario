@@ -28,3 +28,21 @@ exports.Select = async(req, res) => {
         res.status(500).send({message:'erro ao listar organizações', data: error});
     }
 }
+
+exports.GetById = async(req, res) => {
+    try {
+        var org = await OrganizacaoDao.GetById(req.params.id);
+        res.json(org);
+    } catch(error) {
+        res.status(500).send({message:'erro ao consultar organização', data: error});
+    }
+}
+
+exports.GetByCnpj = async(req, res) => {
+    try {
+        var org = await OrganizacaoDao.GetByCnpj(req.params.cnpj);
+        res.json(org);
+    } catch(error) {
+        res.status(500).send({message:'erro ao consultar organização', data: error});
+    }
+}

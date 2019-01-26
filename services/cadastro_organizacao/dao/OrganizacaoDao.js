@@ -35,3 +35,11 @@ exports.Select = async() => {
     var Orgs = await Organizacao.find({}, '');
     return Orgs;   
 }
+
+exports.GetById = async(id) => {
+    return await Organizacao.findById(id);
+}
+
+exports.GetByCnpj = async(cnpj) => {
+    return await Organizacao.findOne({cnpj: cnpj}, '');
+}

@@ -8,5 +8,8 @@ module.exports = function(app) {
         .get(Controller.Select);
 
     app.route('/organizacao/organizacao/:id')
-        .put(Controller.Update);
+        .put(Controller.Update)
+        .get(Controller.GetById);
+    
+    app.route('/organizacao/organizacao/cnpj/:cnpj').get(Controller.GetByCnpj);
 }
