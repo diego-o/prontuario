@@ -2,7 +2,7 @@
 exports.appConfig = {
     TipoOrganizacao: {
         route: "./routes/TipoOrganizacaoRoute",
-        model: "./models/TipoOrganizacaoModel"
+        model: "./models/TipoOrganizacaoModel"        
     }
 }
 
@@ -14,8 +14,8 @@ exports.addRoute = function(App, Config) {
 
 exports.configDB = function(Mongoose) {
     Mongoose.Promise = global.Promise;
-    Mongoose.connect('mongodb://diego:diego123@ds255784.mlab.com:55784/cadastro-paciente');
+    Mongoose.connect('mongodb://diego:diego123@ds113495.mlab.com:13495/cadastro-organizacao');
 
     //usar com Docker
-    //mongoose.connect('mongodb://cadastro_paciente_db/base_cadastro_paciente');
+    //mongoose.connect('mongodb://cadastro_organizacao_db/base_cadastro_organizacao');
 }

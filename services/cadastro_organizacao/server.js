@@ -11,9 +11,9 @@ var Manager = require('./config');
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 
-Manager.addRoute(server, Manager.appConfig.Paciente);
+Manager.addRoute(server, Manager.appConfig.TipoOrganizacao);
 Manager.configDB(mongoose);
 
 server.listen(port, function() {
-    console.log('Serviรงo Cadastro de Organização rodando na porta ' + port);
+    console.log('Serviço Cadastro de Organização rodando na porta ' + port);
 });
