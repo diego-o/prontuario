@@ -12,6 +12,8 @@ server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 
 Manager.addRoute(server, Manager.appConfig.TipoOrganizacao);
+Manager.addRoute(server, Manager.appConfig.Organizacao);
+
 Manager.configDB(mongoose);
 
 server.listen(port, function() {

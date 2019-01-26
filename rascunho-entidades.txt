@@ -60,7 +60,11 @@ Organizacao {
     inscricaoEstadual
     inscricaoMunicipal
     site
-    endereco {
+	logo
+    ativo	
+	dataCadastro
+	dataAlteracao
+	endereco {
         cep
         logradouro
         numero
@@ -68,12 +72,13 @@ Organizacao {
         municipio
         uf
     }
-    contato {
-        telefone ["",""]
-        email
-    }
-    logo
-    ativo
+    contato [
+		{
+			telefone ["",""]
+			email
+		}
+    [
+    
 }
 
 Medico {
@@ -89,10 +94,12 @@ Medico {
         municipio
         uf
     }
-    contato {
-        telefone ["",""]
-        email 
-    }
+    contato [
+		{
+			telefone ["",""]
+			email
+		}
+    [
     ativo
 }
 
@@ -112,10 +119,12 @@ Enfermeiro {
         municipio
         uf
     }
-    contato {
-        telefone ["",""]
-        email 
-    }
+    contato [
+		{
+			telefone ["",""]
+			email
+		}
+    [
     ativo
 }
 
@@ -131,10 +140,12 @@ Agente {
         municipio
         uf
     }
-    contato {
-        telefone ["",""]
-        email 
-    }
+    contato [
+		{
+			telefone ["",""]
+			email
+		}
+    [
     ativo
 }
 ------------------------------------------------------------------------------

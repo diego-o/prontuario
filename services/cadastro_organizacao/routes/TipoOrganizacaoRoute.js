@@ -3,7 +3,7 @@
 module.exports = function(app) {
     var Controller = require('../controller/TipoOrganizacaoController');
 
-    app.route('/organizacao')
+    app.route('/organizacao/tipoorganizacao')
         .post(Controller.Insert)
         .get(Controller.Select);
 

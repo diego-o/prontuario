@@ -3,6 +3,10 @@ exports.appConfig = {
     TipoOrganizacao: {
         route: "./routes/TipoOrganizacaoRoute",
         model: "./models/TipoOrganizacaoModel"        
+    },
+    Organizacao: {
+        route: "./routes/OrganizacaoRoute",
+        model: "./models/OrganizacaoModel"
     }
 }
 
