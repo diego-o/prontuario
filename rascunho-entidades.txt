@@ -83,7 +83,10 @@ Organizacao {
 
 Medico {
     _id
-    crm
+    crm: {
+		numero,
+		uf
+	}	
     nome
     cpf
     endereco {
@@ -109,7 +112,7 @@ Enfermeiro {
     cpf
     coren {
         numero
-        estado
+        uf
     }
     endereco {
         cep
