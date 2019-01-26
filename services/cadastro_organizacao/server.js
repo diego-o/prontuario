@@ -13,6 +13,7 @@ server.use(bodyParser.json());
 
 Manager.addRoute(server, Manager.appConfig.TipoOrganizacao);
 Manager.addRoute(server, Manager.appConfig.Organizacao);
+Manager.addRoute(server, Manager.appConfig.Medico);
 
 Manager.configDB(mongoose);
 

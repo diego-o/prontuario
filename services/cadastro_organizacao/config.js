@@ -7,6 +7,10 @@ exports.appConfig = {
     Organizacao: {
         route: "./routes/OrganizacaoRoute",
         model: "./models/OrganizacaoModel"
+    },
+    Medico: {
+        route: "./routes/MedicoRoute",
+        model: "./models/MedicoModel"
     }
 }
 
