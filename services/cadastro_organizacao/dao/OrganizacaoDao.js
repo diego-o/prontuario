@@ -13,7 +13,7 @@ exports.Update = async(id, org) => {
         $set: {
             ativo: org.ativo,
             razao: org.razao,
-            fantasia: org.fantasia,
+            fantasia: org.fantasia, 
             inscricaoEstadual: org.inscricaoEstadual,
             inscricaoMunicipal: org.inscricaoMunicipal,
             site: org.site,
