@@ -28,3 +28,11 @@ exports.Update = async(id, enf) => {
 exports.GetById = async(id) => {
     return await Enfermeiro.findById(id);
 }
+
+exports.GetByCpf = async(cpf) => {
+    return await Enfermeiro.findOne({cpf: cpf}, '');
+}
+
+exports.GetByCoren = async(coren) => {
+    return await Enfermeiro.findOne({ "coren.numero" : coren.numero, "coren.uf": coren.uf.toUpperCase() }, '');
+}

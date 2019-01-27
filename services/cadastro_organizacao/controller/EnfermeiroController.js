@@ -28,3 +28,21 @@ exports.GetById = async(req, res) => {
         res.status(500).send({message:'erro ao consultar enfermeiro', data: error});
     }
 }
+
+exports.GetByCpf = async(req, res) => {
+    try {
+        var enfermeiro = await EnfermeiroDao.GetByCpf(req.params.cpf);
+        res.send(enfermeiro);
+    } catch(error) {
+        res.status(500).send({message:'erro ao consultar enfermeiro', data: error});
+    }
+}
+
+exports.GetByCoren = async(req, res) => {
+    try {
+        var enfermeiro = await EnfermeiroDao.GetByCoren(req.body);
+        res.send(enfermeiro);
+    } catch(error) {
+        res.status(500).send({message:'erro ao consultar enfermeiro', data: error});
+    }
+}
