@@ -15,6 +15,10 @@ exports.appConfig = {
     Enfermeiro: {
         route: "./routes/EnfermeiroRoute",
         model: "./models/EnfermeiroModel"
+    },
+    Agente: {
+        route: "./routes/AgenteRoute",
+        model: "./models/AgenteModel"
     }
 }
 

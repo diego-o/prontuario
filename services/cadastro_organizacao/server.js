@@ -15,6 +15,7 @@ Manager.addRoute(server, Manager.appConfig.TipoOrganizacao);
 Manager.addRoute(server, Manager.appConfig.Organizacao);
 Manager.addRoute(server, Manager.appConfig.Medico);
 Manager.addRoute(server, Manager.appConfig.Enfermeiro);
+Manager.addRoute(server, Manager.appConfig.Agente);
 
 Manager.configDB(mongoose);
 
