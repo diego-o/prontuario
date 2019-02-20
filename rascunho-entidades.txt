@@ -182,7 +182,7 @@ Carteira {
             Enfermeiro {
                 idEnfermeiro (do cadastro dr serviço  de organização)
                 nome
-                coren
+                cpf
             }
         }
     ]
