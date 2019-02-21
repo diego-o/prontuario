@@ -25,3 +25,7 @@ exports.GetById = async(id) => {
 exports.GetByCodigo = async(codigo) => {
     return await Vacina.findOne({codigo: codigo}, '');
 }
+
+exports.GetAll = async() => {
+    return await Vacina.find();
+}

@@ -2,10 +2,10 @@
 
 const http = require('http');
 
-const BaseUrlPaciente = "http://localhost:3002/";
+const BaseUrl = "http://localhost:3001/";
 
 exports.Get = async (endpoint, callback) => {
-    http.get(BaseUrlPaciente + endpoint, (res) => {
+    http.get(BaseUrl + endpoint, (res) => {
         let rawData = "";
         res.on('data', (data) => { rawData += data; });
         res.on('end', () => {

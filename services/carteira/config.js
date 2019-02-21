@@ -8,6 +8,10 @@ exports.appConfig = {
     Carteira: {
         route: "./routes/CarteiraRoute",
         model: "./models/CarteiraModel"
+    },
+    CarteiraVacina: {
+        route: "./routes/CarteiraVacinaRoute",
+        model: "./models/CarteiraVacinaModel"
     }
 }
 

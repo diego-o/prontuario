@@ -16,62 +16,15 @@ const SchemaCarteira = new Schema({
             require: true
         },
         nome: {
-            type: String,
-            require: true
+            type: String
         },
         carteiraSus: {
-            type: String,
-            require: true
+            type: String
         },
         cpf: {
-            type: String,
-            require: true
+            type: String
         }
-    },
-    vacinas: [
-        {
-            vacina: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Vacina',
-                required: true
-            },
-            dataPrevista: {
-                type: Date,
-                require: true
-            },
-            dataAplicacao: {
-                type: Date
-            },
-            organizacao: {
-                idOrganizacao: {
-                    type: String,
-                    require: true
-                },
-                nome: {
-                    type: String,
-                    require: true
-                },
-                cnpj: {
-                    type: String,
-                    require: true
-                }
-            },
-            enfermeiro: {
-                idEnfermeiro: {
-                    type: String,
-                    require: true
-                },
-                nome: {
-                    type: String,
-                    require: true
-                },
-                cpf: {
-                    type: String,
-                    require: true
-                }
-            }
-        }
-    ]
+    }
 });
 
 module.exports = mongoose.model('Carteira', SchemaCarteira);

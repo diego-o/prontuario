@@ -163,29 +163,27 @@ Vacina {
 
 Carteira {
     _id
+	numero
     Paciente {
         idPaciente (do serviço de cadastro de paciente)
         nome
         carteiraSus
         cpf
     }
-    Vacinas [
-        {
-            Vacina 
-            dataPrevista
-            dataAplicacao
-            Organizacao {
-                idOrganizacao (do cadastro de serviço de organização)
-                nome
-                cnpj
-            }
-            Enfermeiro {
-                idEnfermeiro (do cadastro dr serviço  de organização)
-                nome
-                cpf
-            }
-        }
-    ]
+}
+
+CarteiraVacina {
+	carteira
+	vacina {
+        Vacina 
+        dataPrevista
+        dataAplicacao
+    }
+	organizacao {
+        idOrganizacao (do cadastro de serviço de organização)
+        nome
+        cnpj
+    }
 }
 ------------------------------------------------------------------------------
 

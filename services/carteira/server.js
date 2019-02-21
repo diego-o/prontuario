@@ -13,6 +13,7 @@ server.use(bodyParser.json());
 
 Manager.addRoute(server, Manager.appConfig.Vacina);
 Manager.addRoute(server, Manager.appConfig.Carteira);
+Manager.addRoute(server, Manager.appConfig.CarteiraVacina);
 Manager.configDB(mongoose);
 
 server.listen(port, function() {

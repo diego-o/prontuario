@@ -49,3 +49,15 @@ exports.GetByCodigo = async (req, res, next) => {
         });
     }     
 }
+
+exports.GetAll = async (req, res, next) => {
+    try {
+        var vacinas = await VacinaDao.GetAll();
+        res.status(200).send(vacinas);
+    } catch (error) {
+        res.status(500).send({
+            Message: 'Erro ao consultar vacinas.',
+            Data: error
+        });
+    }
+}
