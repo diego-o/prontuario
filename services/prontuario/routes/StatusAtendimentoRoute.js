@@ -8,12 +8,4 @@ module.exports = function(app) {
         .get(Controller.GetAll);
     
      app.route('/prontuario/statusatendimento/:id').get(Controller.GetById);
-    
-    //version
-    app.route('/prontuario').get((req, res, next) => {
-        res.status(200).send({
-            title: "API de Prontuário do Prontuário Eletrônico",
-            version: "1.0.0.0"
-        })
-    });
 }

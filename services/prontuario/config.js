@@ -8,6 +8,10 @@ exports.appConfig = {
     TipoAtendimento: {
         route: "./routes/TipoAtendimentoRoute",
         model: "./models/TipoAtendimentoModel"
+    },
+    Atendimento: {
+        route: "./routes/AtendimentoRoute",
+        model: "./models/AtendimentoModel"
     }
 }
 

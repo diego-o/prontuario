@@ -13,6 +13,7 @@ server.use(bodyParser.json());
 
 Manager.addRoute(server, Manager.appConfig.StatusAtendimento);
 Manager.addRoute(server, Manager.appConfig.TipoAtendimento);
+Manager.addRoute(server, Manager.appConfig.Atendimento);
 Manager.configDB(mongoose);
 
 server.listen(port, function() {
