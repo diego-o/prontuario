@@ -43,6 +43,15 @@ exports.Insert = async (req, res, next) => {
     } 
 }
 
+exports.Update = async (req, res, next) => {
+    try {
+        var atendimento = await Dao.Update(req.params.id, req.body);
+        res.status(200).send(atendimento);
+    } catch (error) {
+        res.status(500).send({ Message: 'Erro ao alterar atendimento.', Data: error });
+    }     
+}
+
 exports.GetById = async (req, res, next) => {
     try {
         var atendimento = await Dao.GetById(req.params.id);

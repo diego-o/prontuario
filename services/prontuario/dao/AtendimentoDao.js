@@ -8,22 +8,33 @@ exports.Insert = async (atendimento) => {
     return atendimento;
 }
 
+exports.Update = async(id, atendimento) => {
+    return await Atendimento.findByIdAndUpdate(id, {
+        $set:{
+            status: atendimento.status,
+            tipo: atendimento.tipo,
+            dataAtendimento: atendimento.dataAtendimento,
+            descricao: atendimento.descricao
+        }
+    });
+}
+
 exports.GetById = async (id) => {
-    var atendimento = await Atendimento.findById(id);
+    var atendimento = await Atendimento.findById(id).populate('status').populate('tipo');
     return atendimento;
 }
 
 exports.GetByNumero = async (numero) => {
-    var atendimento = await Atendimento.findOne({numero: numero}, '');
+    var atendimento = await Atendimento.findOne({numero: numero}, '').populate('status').populate('tipo');
     return atendimento;
 }
 
 exports.GetByCpfPaciente = async (cpf) => {
-    var atendimentos = await Atendimento.find({"paciente.cpf" : cpf}, '');
+    var atendimentos = await Atendimento.find({"paciente.cpf" : cpf}, '').populate('status').populate('tipo');
     return atendimentos;
 }
 
 exports.GetByCnpjOrganizacao = async (cnpj) => {
-    var atendimentos = await Atendimento.find({"organizacao.cnpj" : cnpj}, '');
+    var atendimentos = await Atendimento.find({"organizacao.cnpj" : cnpj}, '').populate('status').populate('tipo');
     return atendimentos;
 }
