@@ -1,8 +1,6 @@
 'use strict';
 
 const Dao = require('../dao/StatusAtendimentoDao');
-const mongoose = require('mongoose');
-const Status = mongoose.model('StatusAtendimento');
 
 exports.Insert = async (req, res, next) => {
     try {

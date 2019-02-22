@@ -4,6 +4,10 @@ exports.appConfig = {
     StatusAtendimento: {
         route: "./routes/StatusAtendimentoRoute",
         model: "./models/StatusAtendimentoModel"
+    },
+    TipoAtendimento: {
+        route: "./routes/TipoAtendimentoRoute",
+        model: "./models/TipoAtendimentoModel"
     }
 }
 
