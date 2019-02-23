@@ -15,3 +15,15 @@ executar compose docker
 docker image
 	-- criar imagem
 	docker image build -t <name-img> .
+	
+	
+Executar portainer (ps como adm)
+	netsh interface portproxy add v4tov4 listenaddress=10.0.75.1 listenport=2375 connectaddress=127.0.0.1 connectport=2375
+	netsh advfirewall firewall add rule name="docker management" dir=in action=allow protocol=TCP localport=2375
+	docker run -d -p 9000:9000 -v portainer_data:/data portainer/portainer -H tcp://10.0.75.1:2375
+	http://localhost:9000
+		
+
+	
+	
+	

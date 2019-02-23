@@ -3,6 +3,7 @@ networks:
   api:
 services:
   gateway-api:
+    restart: on-failure
     image: node:10.7
     volumes:
       - ./gateway:/gateway
@@ -17,10 +18,12 @@ services:
       - carteira_api
       - prontuario_api
   cadastro_organizacao_db:
+    restart: on-failure
     image: mongo:4.0
     networks: 
       - api
   cadastro_organizacao_api:
+    restart: on-failure
     image: node:10.7
     volumes:
       - ./cadastro_organizacao:/cadastro_organizacao
@@ -32,10 +35,12 @@ services:
     networks: 
       - api
   cadastro_paciente_db:
+    restart: on-failure
     image: mongo:4.0
     networks: 
       - api
   cadastro_paciente_api:
+    restart: on-failure
     image: node:10.7
     volumes: 
       - ./cadastro_paciente:/cadastro_paciente
@@ -47,10 +52,12 @@ services:
     links:
       - cadastro_paciente_db
   carteira_db:
+    restart: on-failure
     image: mongo:4.0
     networks: 
       - api
   carteira_api:
+    restart: on-failure
     image: node:10.7
     volumes:
       - ./carteira:/carteira
@@ -64,10 +71,12 @@ services:
       - cadastro_organizacao_api
       - carteira_db
   prontuario_db:
+    restart: on-failure
     image: mongo:4.0
     networks: 
       - api
   prontuario_api:
+    restart: on-failure
     image: node:10.7
     volumes:
       - ./prontuario:/prontuario
