@@ -11,3 +11,7 @@ executar compose docker
 	docker-compose up
 
 	docker network inspect networkname
+	
+docker image
+	-- criar imagem
+	docker image build -t <name-img> .
