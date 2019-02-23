@@ -11,11 +11,15 @@ services:
     command: bash -c "cd /gateway && npm i && node server"
     networks: 
       - api
-    depends_on:
+    links:
       - cadastro_organizacao_api
       - cadastro_paciente_api
+      - carteira_api
+      - prontuario_api
   cadastro_organizacao_db:
     image: mongo:4.0
+    networks: 
+      - api
   cadastro_organizacao_api:
     image: node:10.7
     volumes:
@@ -23,10 +27,14 @@ services:
     ports:
       - 3001:3000
     command: bash -c "cd /cadastro_organizacao && npm i && node server"
+    links:
+      - cadastro_organizacao_db
     networks: 
       - api
   cadastro_paciente_db:
     image: mongo:4.0
+    networks: 
+      - api
   cadastro_paciente_api:
     image: node:10.7
     volumes: 
@@ -36,3 +44,39 @@ services:
     command: bash -c "cd /cadastro_paciente && npm i && node server"
     networks: 
       - api
+    links:
+      - cadastro_paciente_db
+  carteira_db:
+    image: mongo:4.0
+    networks: 
+      - api
+  carteira_api:
+    image: node:10.7
+    volumes:
+      - ./carteira:/carteira
+    ports:
+      - 3003:3000
+    command: bash -c "cd /carteira && npm i && node server"
+    networks: 
+      - api
+    links:
+      - cadastro_paciente_api
+      - cadastro_organizacao_api
+      - carteira_db
+  prontuario_db:
+    image: mongo:4.0
+    networks: 
+      - api
+  prontuario_api:
+    image: node:10.7
+    volumes:
+      - ./prontuario:/prontuario
+    ports:
+      - 3004:3000
+    command: bash -c "cd /prontuario && npm i && node server"
+    networks: 
+      - api
+    links:
+      - cadastro_paciente_api
+      - cadastro_organizacao_api
+      - prontuario_db

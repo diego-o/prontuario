@@ -23,8 +23,8 @@ exports.addRoute = function(App, Config){
 
 exports.configDB = function(Mongoose) {
     Mongoose.Promise = global.Promise;
-    Mongoose.connect('mongodb://diego:diego123@ds163764.mlab.com:63764/prontuario');
+    //Mongoose.connect('mongodb://diego:diego123@ds163764.mlab.com:63764/prontuario');
 
     //usar com Docker
-    //mongoose.connect('mongodb://prontuario_db/base_prontuario_db');
+    Mongoose.connect('mongodb://prontuario_db/db_prontuario_db', { useNewUrlParser: true });
 }

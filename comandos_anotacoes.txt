@@ -1,3 +1,5 @@
+"start": "nodemon ./server.js"
+
 NodeJS
 criar arquivo descritor no inicio do projeto
 	npm init -y

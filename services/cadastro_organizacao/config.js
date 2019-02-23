@@ -30,8 +30,8 @@ exports.addRoute = function(App, Config) {
 
 exports.configDB = function(Mongoose) {
     Mongoose.Promise = global.Promise;
-    Mongoose.connect('mongodb://diego:diego123@ds113495.mlab.com:13495/cadastro-organizacao');
+    //Mongoose.connect('mongodb://diego:diego123@ds113495.mlab.com:13495/cadastro-organizacao', { useNewUrlParser: true });
 
     //usar com Docker
-    //mongoose.connect('mongodb://cadastro_organizacao_db/base_cadastro_organizacao');
+    Mongoose.connect('mongodb://cadastro_organizacao_db/db_cadastro_organizacao', { useNewUrlParser: true });
 }

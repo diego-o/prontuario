@@ -7,9 +7,9 @@ module.exports = function(app) {
         .post(Controller.Insert)
         .get(Controller.Select);
 
-    app.route('/organizacao/version').get((req, res, next) => {
+    app.route('/organizacao').get((req, res, next) => {
         res.status(200).send({
-            title: "API de Cadastro de Pacinetes do Prontuário Eletrônico",
+            title: "API de Cadastro de Organização do Prontuário Eletrônico",
             version: "1.0.0.0"
         })
     });
