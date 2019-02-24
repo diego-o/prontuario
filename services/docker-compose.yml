@@ -50,7 +50,7 @@ services:
     command: bash -c "cd /service_prontuario && npm i && node server"
 
   api_gateway:
-    build: service_gateway
+    image: node:10.7
     volumes:
       - ./service_gateway:/service_gateway
     links:
@@ -60,3 +60,4 @@ services:
       - api_prontuario
     ports:
       - "3000:3000"
+    command: bash -c "cd /service_gateway && npm i && node server"
