@@ -10,7 +10,7 @@ services:
     image: mongo:4.0
 
   api_paciente:
-    image: mhart/alpine-node:10.15.1
+    image: node:10.7
     volumes: 
       - ./service_paciente:/service_paciente
     links:
@@ -20,7 +20,7 @@ services:
     command: bash -c "cd /service_paciente && npm i && node server"
 
   api_organizacao:
-    image: mhart/alpine-node:10.15.1
+    image: node:10.7
     volumes: 
       - ./service_organizacao:/service_organizacao
     links:
@@ -30,7 +30,7 @@ services:
     command: bash -c "cd /service_organizacao && npm i && node server"
   
   api_carteira:
-    image: mhart/alpine-node:10.15.1
+    image: node:10.7
     volumes: 
       - ./service_carteira:/service_carteira
     links:
@@ -40,7 +40,7 @@ services:
     command: bash -c "cd /service_carteira && npm i && node server"
 
   api_prontuario:
-    image: mhart/alpine-node:10.15.1
+    image: node:10.7
     volumes: 
       - ./service_prontuario:/service_prontuario
     links:

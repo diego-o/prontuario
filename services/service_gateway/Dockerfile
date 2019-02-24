@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:10.15.1
+FROM node:10.7
 RUN mkdir /app
 WORKDIR /app
 COPY package.json /app
