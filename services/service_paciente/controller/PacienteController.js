@@ -26,6 +26,7 @@ exports.Update = async(req, res, next) => {
 exports.GetById = async(req, res, next) => {
     try {
         var paciente = await pacienteDao.GetById(req.params.id);
+        console.log("consulta de paciente executada");
         res.status(200).send(paciente);
     } catch (error) {
         res.status(500).send({ Message: 'Erro ao consultar paciente.', Data: error });
