@@ -33,5 +33,5 @@ exports.configDB = function(Mongoose) {
     //Mongoose.connect('mongodb://diego:diego123@ds113495.mlab.com:13495/cadastro-organizacao', { useNewUrlParser: true });
 
     //usar com Docker
-    Mongoose.connect('mongodb://cadastro_organizacao_db/db_cadastro_organizacao', { useNewUrlParser: true });
+    Mongoose.connect('mongodb://db_organizacao/database_organizacao', { useNewUrlParser: true });
 }

@@ -2,7 +2,7 @@
 
 const http = require('http');
 
-const BaseUrl = "http://cadastro_organizacao_api:3001/";
+const BaseUrl = "http://api_organizacao:3000/";
 
 exports.Get = async (endpoint, callback) => {
     http.get(BaseUrl + endpoint, (res) => {
@@ -22,7 +22,7 @@ exports.Get = async (endpoint, callback) => {
                 }
             } catch {
                 callback(null);
-            }
+            }            
         });
     });
 }

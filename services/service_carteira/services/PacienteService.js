@@ -2,7 +2,7 @@
 
 const http = require('http');
 
-const BaseUrlPaciente = "http://cadastro_paciente_api:3002/";
+const BaseUrlPaciente = "http://api_paciente:3000/";
 
 exports.Get = async (endpoint, callback) => {
     http.get(BaseUrlPaciente + endpoint, (res) => {

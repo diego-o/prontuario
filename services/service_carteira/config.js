@@ -26,5 +26,5 @@ exports.configDB = function(Mongoose) {
     //Mongoose.connect('mongodb://diego:diego123@ds135757.mlab.com:35757/carteira');
 
     //usar com Docker
-    Mongoose.connect('mongodb://carteira_db/db_carteira', { useNewUrlParser: true });
+    Mongoose.connect('mongodb://db_carteira/database_carteira', { useNewUrlParser: true });
 }

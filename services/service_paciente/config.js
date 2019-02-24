@@ -17,5 +17,5 @@ exports.configDB = function(Mongoose) {
     //Mongoose.connect('mongodb://diego:diego123@ds255784.mlab.com:55784/cadastro-paciente', { useNewUrlParser: true });
 
     //usar com Docker
-    Mongoose.connect('mongodb://cadastro_paciente_db/db_cadastro_paciente', { useNewUrlParser: true });
+    Mongoose.connect('mongodb://db_paciente/database_paciente', { useNewUrlParser: true });
 }

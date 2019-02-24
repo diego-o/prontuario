@@ -1,5 +1,4 @@
-FROM node:10.7
-MAINTAINER diego_1souza@hotmail.com
+FROM mhart/alpine-node:10.15.1
 RUN mkdir /app
 WORKDIR /app
 COPY package.json /app

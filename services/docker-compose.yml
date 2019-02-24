@@ -1,91 +1,62 @@
 version: '3.7'
-networks: 
-  api:
 services:
-  gateway-api:
-    restart: on-failure
-    image: node:10.7
-    volumes:
-      - ./gateway:/gateway
-    ports:
-      - 3000:3000
-    command: bash -c "cd /gateway && npm i && node server"
-    networks: 
-      - api
-    links:
-      - cadastro_organizacao_api
-      - cadastro_paciente_api
-      - carteira_api
-      - prontuario_api
-  cadastro_organizacao_db:
-    restart: on-failure
+  db_paciente:
     image: mongo:4.0
-    networks: 
-      - api
-  cadastro_organizacao_api:
-    restart: on-failure
-    image: node:10.7
-    volumes:
-      - ./cadastro_organizacao:/cadastro_organizacao
-    ports:
-      - 3001:3000
-    command: bash -c "cd /cadastro_organizacao && npm i && node server"
-    links:
-      - cadastro_organizacao_db
-    networks: 
-      - api
-  cadastro_paciente_db:
-    restart: on-failure
+  db_organizacao:
     image: mongo:4.0
-    networks: 
-      - api
-  cadastro_paciente_api:
-    restart: on-failure
-    image: node:10.7
+  db_carteira:
+    image: mongo:4.0
+  db_prontuario:
+    image: mongo:4.0
+
+  api_paciente:
+    image: mhart/alpine-node:10.15.1
     volumes: 
-      - ./cadastro_paciente:/cadastro_paciente
-    ports:
-      - 3002:3000
-    command: bash -c "cd /cadastro_paciente && npm i && node server"
-    networks: 
-      - api
+      - ./service_paciente:/service_paciente
     links:
-      - cadastro_paciente_db
-  carteira_db:
-    restart: on-failure
-    image: mongo:4.0
-    networks: 
-      - api
-  carteira_api:
-    restart: on-failure
-    image: node:10.7
+      - db_paciente
+    ports:
+      - "3000"
+    command: bash -c "cd /service_paciente && npm i && node server"
+
+  api_organizacao:
+    image: mhart/alpine-node:10.15.1
+    volumes: 
+      - ./service_organizacao:/service_organizacao
+    links:
+      - db_paciente
+    ports:
+      - "3000"
+    command: bash -c "cd /service_organizacao && npm i && node server"
+  
+  api_carteira:
+    image: mhart/alpine-node:10.15.1
+    volumes: 
+      - ./service_carteira:/service_carteira
+    links:
+      - db_paciente
+    ports:
+      - "3000"
+    command: bash -c "cd /service_carteira && npm i && node server"
+
+  api_prontuario:
+    image: mhart/alpine-node:10.15.1
+    volumes: 
+      - ./service_prontuario:/service_prontuario
+    links:
+      - db_paciente
+    ports:
+      - "3000"
+    command: bash -c "cd /service_prontuario && npm i && node server"
+
+  api_gateway:
+    build: service_gateway
     volumes:
-      - ./carteira:/carteira
-    ports:
-      - 3003:3000
-    command: bash -c "cd /carteira && npm i && node server"
-    networks: 
-      - api
+      - ./service_gateway:/service_gateway
     links:
-      - cadastro_paciente_api
-      - cadastro_organizacao_api
-      - carteira_db
-  prontuario_db:
-    restart: on-failure
-    image: mongo:4.0
-    networks: 
-      - api
-  prontuario_api:
-    restart: on-failure
-    image: node:10.7
-    volumes:
-      - ./prontuario:/prontuario
+      - api_paciente
+      - api_organizacao
+      - api_carteira
+      - api_prontuario
     ports:
-      - 3004:3000
-    command: bash -c "cd /prontuario && npm i && node server"
-    networks: 
-      - api
-    links:
-      - cadastro_paciente_api
-      - cadastro_organizacao_api
-      - prontuario_db
+      - "3000:3000"

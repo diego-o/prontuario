@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  db_paciente:
+    image: mongo:4.0
+
+  api_paciente:
+    build: service_paciente
+    volumes: 
+      - ./service_paciente:/service_paciente
+    links:
+      - db_paciente
+    ports:
+      - "3000"
+
+  api_gateway:
+    build: service_gateway
+    volumes:
+      - ./service_gateway:/service_gateway
+    links:
+      - api_paciente
+    ports:
+      - "3000:3000"

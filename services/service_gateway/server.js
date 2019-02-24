@@ -6,7 +6,7 @@ const httpProxy = require('express-http-proxy');
 const app = express();
 var port = process.env.PORT || 3000;
 
-const ServiceCadastroOrganizacao = httpProxy('http://cadastro_organizacao_api:3001');
+const ServiceCadastroOrganizacao = httpProxy('http://api_organizacao:3000');
 app.get('/organizacao', (req, res, next) => { ServiceCadastroOrganizacao(req, res, next) }); //version
 
 app.post('/organizacao/agente', (req, res, next) => { ServiceCadastroOrganizacao(req, res, next) });
@@ -35,7 +35,7 @@ app.get('/organizacao/organizacao/cnpj/:cnpj', (req, res, next) => { ServiceCada
 app.post('/organizacao/tipoorganizacao', (req, res, next) => { ServiceCadastroOrganizacao(req, res, next) });
 app.get('/organizacao/tipoorganizacao', (req, res, next) => { ServiceCadastroOrganizacao(req, res, next) });
 
-const ServiceCadastroPaciente = httpProxy('http://cadastro_paciente_api:3002');
+const ServiceCadastroPaciente = httpProxy('http://api_paciente:3000');
 app.get('/paciente', (req, res, next) => { ServiceCadastroPaciente(req, res, next) }); //version
 
 app.post('/paciente', (req, res, next) => { ServiceCadastroPaciente(req, res, next) });
@@ -46,7 +46,7 @@ app.get('/paciente/carteirasus/:carteiraSus', (req, res, next) => { ServiceCadas
 app.get('/paciente/cpfmae/:cpfMae', (req, res, next) => { ServiceCadastroPaciente(req, res, next) });
 app.get('/paciente/cpfpai/:cpfPai', (req, res, next) => { ServiceCadastroPaciente(req, res, next) });
 
-const ServiceCarteira = httpProxy('http://carteira_api:3003');
+const ServiceCarteira = httpProxy('http://api_carteira:3000');
 app.get('/carteira', (req, res, next) => { ServiceCarteira(req, res, next) }); //version
 
 app.post('/carteira', (req, res, next) => { ServiceCarteira(req, res, next) });
@@ -66,7 +66,7 @@ app.get('/carteira/vacina', (req, res, next) => { ServiceCarteira(req, res, next
 app.get('/carteira/vacina/:id', (req, res, next) => { ServiceCarteira(req, res, next) });
 app.get('/carteira/vacina/codigo/:codigo', (req, res, next) => { ServiceCarteira(req, res, next) });
 
-const ServiceProntuario = httpProxy('http://prontuario_api:3004');
+const ServiceProntuario = httpProxy('http://api_prontuario:3000');
 app.get('/prontuario', (req, res, next) => { ServiceProntuario(req, res, next) }); //version
 
 app.post('/prontuario/atendimento', (req, res, next) => { ServiceProntuario(req, res, next) });
