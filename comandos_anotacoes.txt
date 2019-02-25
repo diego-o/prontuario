@@ -18,12 +18,29 @@ docker image
 	
 	
 Executar portainer (ps como adm)
+    --windows
 	netsh interface portproxy add v4tov4 listenaddress=10.0.75.1 listenport=2375 connectaddress=127.0.0.1 connectport=2375
 	netsh advfirewall firewall add rule name="docker management" dir=in action=allow protocol=TCP localport=2375
 	docker run -d -p 9000:9000 -v portainer_data:/data portainer/portainer -H tcp://10.0.75.1:2375
 	http://localhost:9000
-		
 
+	--linux
+	docker volume create portainer_data
+	docker run -d -p 443:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+
+Apagrar regras iptables no linux				
+	sudo iptables -F
+Liberar portas no linux		
+	sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+	sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+	
+	iptables-save > regras-fw.conf
+	
+	--para restaurar
+	iptables-restore < regras-fw.conf
+	
+	
+	
 	
 	
 	
