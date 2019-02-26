@@ -34,10 +34,9 @@ Liberar portas no linux
 	sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 	sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
 	
-	iptables-save > regras-fw.conf
-	
-	--para restaurar
-	iptables-restore < regras-fw.conf
+	-- iptables-persistent
+	-- salvar nova regras
+		sudo netfilter-persistent save
 	
 	
 	
