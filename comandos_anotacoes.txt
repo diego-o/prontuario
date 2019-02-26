@@ -26,12 +26,13 @@ Executar portainer (ps como adm)
 
 	--linux
 	docker volume create portainer_data
-	docker run -d -p 443:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+	docker run -d -p 81:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
 
 Apagrar regras iptables no linux				
 	sudo iptables -F
 Liberar portas no linux		
 	sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+	sudo iptables -A INPUT -p tcp --dport 81 -j ACCEPT
 	sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
 	
 	-- iptables-persistent

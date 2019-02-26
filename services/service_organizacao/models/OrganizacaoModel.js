@@ -5,6 +5,10 @@ var schemaEndereco = require('./EnderecoModel');
 var schemaContato = require('./ContatoModel');
 
 const SchemaOrganizacao = new Schema({
+    tipo: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true
+    },
     cnpj: {
         type: String,
         required: true,
