@@ -5,19 +5,19 @@ services:
   db_paciente:
     image: mongo:4.0
     volumes:
-      - data:/data_db_paciente
+      - data:/data/dbdata_db_paciente
   db_organizacao:
     image: mongo:4.0
     volumes:
-      - data:/data_db_organizacao
+      - data:/data/data_db_organizacao
   db_carteira:
     image: mongo:4.0
     volumes:
-      - data:/data_db_carteira
+      - data:/data/data_db_carteira
   db_prontuario:
     image: mongo:4.0
     volumes:
-      - data:/data_db_prontuario
+      - data:/data/data_db_prontuario
 
   api_paciente:
     image: node:10.7
