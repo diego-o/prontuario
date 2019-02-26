@@ -22,7 +22,7 @@ services:
     image: mongo:4.0
     environment:
       - MONGO_DATA_DIR=/data/db_prontuario
-    vvolumes:
+    volumes:
       - ./data/db:/data/db_prontuario
 
   api_paciente:
