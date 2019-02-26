@@ -2,18 +2,26 @@ version: '3.7'
 services:
   db_paciente:
     image: mongo:4.0
+    environment:
+      - MONGO_DATA_DIR=/data/db_paciente
     volumes:
       - ./data/db:/data/db_paciente
   db_organizacao:
     image: mongo:4.0
+    environment:
+      - MONGO_DATA_DIR=/data/db_organizacao
     volumes:
       - ./data/db:/data/db_organizacao
   db_carteira:
     image: mongo:4.0
+    environment:
+      - MONGO_DATA_DIR=/data/db_carteira
     volumes:
       - ./data/db:/data/db_carteira
   db_prontuario:
     image: mongo:4.0
+    environment:
+      - MONGO_DATA_DIR=/data/db_prontuario
     vvolumes:
       - ./data/db:/data/db_prontuario
 
