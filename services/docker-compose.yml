@@ -1,13 +1,22 @@
 version: '3.7'
+volumes:
 services:
   db_paciente:
     image: mongo:4.0
+    volumes:
+      - data_db_paciente
   db_organizacao:
     image: mongo:4.0
+    volumes:
+      - data_db_organizacao
   db_carteira:
     image: mongo:4.0
+    volumes:
+      - data_db_carteira
   db_prontuario:
     image: mongo:4.0
+    volumes:
+      - data_db_prontuario
 
   api_paciente:
     image: node:10.7
