@@ -5,7 +5,7 @@ services:
   db_paciente:
     image: mongo:4.0
     volumes:
-      - data:/data/dbdata_db_paciente
+      - data:/data/data_db_paciente
   db_organizacao:
     image: mongo:4.0
     volumes:
