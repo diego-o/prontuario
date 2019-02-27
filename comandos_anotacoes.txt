@@ -41,6 +41,6 @@ Liberar portas no linux
 	
 	
 	
-	
+	docker volume rm $(docker volume ls -q -f dangling=true)  
 	
 	
