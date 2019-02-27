@@ -1,19 +1,22 @@
-version: '3.7'
-volumes:
-  db-data:
-  mongo-config:
+version: '3'
 services:
   db_paciente:
     image: mongo:4.0
     volumes:
-      - db-data:/data/db_paciente
-      - mongo-config:/data/configdb
+      - db-data-paciente:/data/db
+      - mongo-config-paciente:/data/configdb
   db_organizacao:
     image: mongo:4.0
+    - db-data-organizacao:/data/db
+    - mongo-config-organizacao:/data/configdb
   db_carteira:
     image: mongo:4.0
+    - db-data-carteira:/data/db
+    - mongo-config-carteira:/data/configdb
   db_prontuario:
     image: mongo:4.0
+    - db-data-prontuario:/data/db
+    - mongo-config-prontuario:/data/configdb
 
   api_paciente:
     image: node:10.7
@@ -67,3 +70,16 @@ services:
     ports:
       - "80:3000"
     command: bash -c "cd /service_gateway && npm i && node server"
+
+volumes:
+  db-data-paciente:
+  mongo-config-paciente:
+
+  db-data-organizacao:
+  mongo-config-organizacao:
+
+  db-data-carteira:
+  mongo-config-carteira:
+
+  db-data-prontuario:
+  mongo-config-prontuario:
