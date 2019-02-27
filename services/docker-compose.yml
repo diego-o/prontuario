@@ -7,14 +7,17 @@ services:
       - mongo-config-paciente:/data/configdb
   db_organizacao:
     image: mongo:4.0
+    volumes:
     - db-data-organizacao:/data/db
     - mongo-config-organizacao:/data/configdb
   db_carteira:
     image: mongo:4.0
+    volumes:
     - db-data-carteira:/data/db
     - mongo-config-carteira:/data/configdb
   db_prontuario:
     image: mongo:4.0
+    volumes:
     - db-data-prontuario:/data/db
     - mongo-config-prontuario:/data/configdb
 
