@@ -23,8 +23,8 @@ exports.GetById = async(id) => {
 exports.GetByNumeroCarteira = async(numero) => {
     return await CarteiraVacina.find({}, 'vacina organizacao')
         .populate({
-            path: 'carteira vacina',
-            //select: 'paciente numero',
+            path: 'carteira',
+            select: 'paciente numero',
             match: {numero: numero}
         });
 }
