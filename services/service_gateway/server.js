@@ -3,9 +3,10 @@
 var http = require('http');
 const express = require('express');
 const app = express();
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 80; //3000
 var swaggerJSDoc = require('swagger-jsdoc');
 var path = require('path');
+var cors = require('cors');
 
 var swaggerDefinition = {
     info: {
@@ -13,7 +14,7 @@ var swaggerDefinition = {
        version: '1.0.0.0',
        description: '',
     },
-    host: 'localhost:' + port,
+    host: 'localhost',
     basePath: '/'
 };
 var options = {
@@ -29,6 +30,8 @@ app.get('/swagger.json', function (req, res) {
    res.setHeader('Content-Type', 'application/json');
    res.send(swaggerSpec);
 });
+
+app.use(cors());
 
 var IndexRoute = require('./routes/IndexRoute');
 IndexRoute.Add(app);
