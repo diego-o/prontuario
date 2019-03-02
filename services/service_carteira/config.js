@@ -23,8 +23,8 @@ exports.addRoute = function(App, Config){
 
 exports.configDB = function(Mongoose) {
     Mongoose.Promise = global.Promise;
-    Mongoose.connect('mongodb://diego:diego123@ds135757.mlab.com:35757/carteira');
+    //Mongoose.connect('mongodb://diego:diego123@ds135757.mlab.com:35757/carteira');
 
     //usar com Docker
-    //Mongoose.connect('mongodb://db_carteira/database_carteira', { useNewUrlParser: true });
+    Mongoose.connect('mongodb://db_carteira/database_carteira', { useNewUrlParser: true });
 }
