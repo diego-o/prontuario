@@ -58,6 +58,18 @@ const SchemaAtendimento = new Schema({
             type: String
         }
     },
+    medico: {
+        idMedico: {
+            type: String,
+            require: true
+        },
+        nome: {
+            type: String
+        },
+        crm: {
+            type: String
+        }
+    },
     anexos: [{
         type: String
     }]

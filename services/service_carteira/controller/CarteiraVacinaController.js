@@ -1,6 +1,7 @@
 'use strict';
 
 const CarteiraVacinaDao = require('../dao/CarteiraVacinaDao');
+const VacinaDao = require('../dao/VacinaDao');
 const mongoose = require('mongoose');
 const CarteiraVacina = mongoose.model('CarteiraVacina');
 
@@ -51,7 +52,26 @@ exports.GetById = async (req, res, next) => {
 exports.GetByNumeroCarteira = async (req, res, next) => {
     try {
         var carteiraVacina = await CarteiraVacinaDao.GetByNumeroCarteira(req.params.numero);
-        res.status(200).send(carteiraVacina);
+
+        var Carteira = {
+            numero: carteiraVacina[0].carteira.numero,
+            paciente: carteiraVacina[0].carteira.paciente,
+            vacinas: []
+        }
+        
+        for (var i = 0; i < carteiraVacina.length; i++) {
+            Carteira.vacinas.push({
+                vacina: await VacinaDao.GetById(carteiraVacina[i].vacina.vacina),
+                aplicacao: {
+                    dataPrevista: carteiraVacina[i].vacina.dataPrevista,
+                    dataAplicacao: carteiraVacina[i].vacina.dataAplicacao,
+                    aplicada: carteiraVacina[i].vacina.dataAplicacao != null ? "S" : "N"
+                },
+                organizacao: carteiraVacina[i].organizacao
+            });
+        }
+
+        res.status(200).send(Carteira);
     } catch (error) {
         res.status(500).send({ Message: 'Erro ao consultar.', Data: error });
     }     

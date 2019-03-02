@@ -27,13 +27,22 @@ exports.Insert = async (req, res, next) => {
                     } else {
                         atendimento.organizacao.nome = org.razao;
                         atendimento.organizacao.cnpj = org.cnpj;
-        
-                        try {
-                            var atendimentoPersistido = await Dao.Insert(atendimento);
-                            res.status(200).send(atendimentoPersistido);
-                        } catch (error) {
-                            res.status(500).send({ Message: 'Erro ao cadastrar atendimento.', Data: error });
-                        }                
+
+                        OrganizacaoService.Get("organizacao/medico/"+atendimento.medico.idMedico, async function(med) {
+                            if (med == null) {
+                                res.status(500).send({ Message: 'Erro ao cadastrar atendimento.',  Data: 'idMedico não encontrado.' });
+                            } else {
+                                atendimento.medico.nome = med.nome,
+                                atendimento.medico.crm = med.crm.numero + "-" + med.crm.uf;
+    
+                                try {
+                                    var atendimentoPersistido = await Dao.Insert(atendimento);
+                                    res.status(200).send(atendimentoPersistido);
+                                } catch (error) {
+                                    res.status(500).send({ Message: 'Erro ao cadastrar atendimento.', Data: error });
+                                }
+                            }
+                        });
                     }
                 });               
             }
