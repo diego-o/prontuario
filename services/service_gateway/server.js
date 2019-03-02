@@ -3,7 +3,7 @@
 var http = require('http');
 const express = require('express');
 const app = express();
-var port = process.env.PORT || 80; //3000
+var port = process.env.PORT || 3000; //3000
 var swaggerJSDoc = require('swagger-jsdoc');
 var path = require('path');
 var cors = require('cors');
