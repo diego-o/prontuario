@@ -3,10 +3,16 @@
 var http = require('http');
 const express = require('express');
 const app = express();
-var port = process.env.PORT || 80; //3000
+var port = process.env.PORT || 80; //em cloud deve ser = 3000
 var swaggerJSDoc = require('swagger-jsdoc');
 var path = require('path');
 var cors = require('cors');
+var mongoose = require('mongoose');
+var Manager = require('./config');
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 var swaggerDefinition = {
     info: {
@@ -48,8 +54,10 @@ CarteiraRoute.Add(app);
 var ProntuarioRoute = require('./routes/ProntuarioRoute');
 ProntuarioRoute.Add(app);
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+var AutenticacaoRoute = require('./routes/AutenticacaoRoute');
+AutenticacaoRoute.Add(app);
+
+Manager.configDB(mongoose);
 
 var server = http.createServer(app);
 server.listen(port);
