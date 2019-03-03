@@ -3,18 +3,18 @@
 var http = require('http');
 const express = require('express');
 const app = express();
-var port = process.env.PORT || 3000; //3000
+var port = process.env.PORT || 80; //3000
 var swaggerJSDoc = require('swagger-jsdoc');
 var path = require('path');
 var cors = require('cors');
 
 var swaggerDefinition = {
     info: {
-       title: 'Documentação API Prontuário Eletrônico',
+       title: 'Documentação de APIs do Prontuário Eletrônico',
        version: '1.0.0.0',
        description: '',
     },
-    host: '35.198.41.47',
+    host: 'localhost',
     basePath: '/'
 };
 var options = {
@@ -44,6 +44,9 @@ PacienteRoute.Add(app);
 
 var CarteiraRoute = require('./routes/CarteiraRoute');
 CarteiraRoute.Add(app);
+
+var ProntuarioRoute = require('./routes/ProntuarioRoute');
+ProntuarioRoute.Add(app);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

@@ -125,10 +125,109 @@ exports.Add = function(app) {
      */
     app.get('/organizacao/medico/cpf/:cpf', (req, res, next) => { ServiceCadastroOrganizacao(req, res, next) });
 
+    /**
+     * @swagger
+     * /organizacao/organizacao:
+     *   post:
+     *     tags:
+     *       - Organizacao
+     *     description: Inserir nova Organização
+     *     produces:
+     *       - application/json
+     *     parameters:
+     *       - name: organizacao
+     *         description: Objeto Organizacao
+     *         in: body
+     *         required: true
+     *         schema:
+     *           $ref: '#/paths/components/schemas/Organizacao'
+     *     responses:
+     *       200:
+     *         description: Successfully created
+     */
     app.post('/organizacao/organizacao', (req, res, next) => { ServiceCadastroOrganizacao(req, res, next) });
-    app.get('/organizacao/organizacao', (req, res, next) => { ServiceCadastroOrganizacao(req, res, next) });
+
+    /**
+     * @swagger
+     * /organizacao/organizacao/{id}:
+     *   put:
+     *     tags: 
+     *       - Organizacao
+     *     description: Atualizar uma Organizacao
+     *     produces: 
+     *       - application/json
+     *     parameters:
+     *       - name: id
+     *         in: path
+     *         required: true
+     *         type: string
+     *       - name: organizacao
+     *         description: Objeto Organizacao
+     *         in: body
+     *         required: true
+     *         schema:
+     *           $ref: '#/paths/components/schemas/Organizacao'
+     *     responses:
+     *       200:
+     *         description: Successfully updated
+     */
     app.put('/organizacao/organizacao/:id', (req, res, next) => { ServiceCadastroOrganizacao(req, res, next) });
+
+    /**
+     * @swagger
+     * /organizacao/organizacao:
+     *   get:
+     *     tags:
+     *       - Organizacao
+     *     description: Lista todas Organizações
+     *     produces:
+     *       - application/json
+     *     responses:
+     *       200:
+     *         description: Array de Organizacao
+     *         schema:
+     *           $ref: '#/paths/components/schemas/Organizacao'
+     */
+    app.get('/organizacao/organizacao', (req, res, next) => { ServiceCadastroOrganizacao(req, res, next) });
+
+    /**
+     * @swagger
+     * /organizacao/organizacao/{id}:
+     *   get:
+     *     tags:
+     *       - Organizacao
+     *     description: Consultar Organização
+     *     produces:
+     *       - application/json
+     *     parameters:
+     *       - name: id
+     *         in: path
+     *         required: true
+     *         type: string
+     *     responses:
+     *       200:
+     *         description: Objeto Organizacao
+     */
     app.get('/organizacao/organizacao/:id', (req, res, next) => { ServiceCadastroOrganizacao(req, res, next) });
+
+    /**
+     * @swagger
+     * /organizacao/organizacao/cnpj/{cnpj}:
+     *   get:
+     *     tags:
+     *       - Organizacao
+     *     description: Consultar Organização
+     *     produces:
+     *       - application/json
+     *     parameters:
+     *       - name: cnpj
+     *         in: path
+     *         required: true
+     *         type: string
+     *     responses:
+     *       200:
+     *         description: Objeto Organizacao
+     */
     app.get('/organizacao/organizacao/cnpj/:cnpj', (req, res, next) => { ServiceCadastroOrganizacao(req, res, next) });
 
     /**
