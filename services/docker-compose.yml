@@ -22,9 +22,9 @@ services:
       - mongo-config-prontuario:/data/configdb
   db_autenticacao:
     image: mongo:4.0
-    vlumes:
-      - db-data-atendimento:/data/db
-      - mongo-config-atendimento:/data/configdb
+    volumes:
+      - db-data-autenticacao:/data/db
+      - mongo-config-autenticacao:/data/configdb
 
   api_paciente:
     image: node:10.7
@@ -71,6 +71,7 @@ services:
     volumes:
       - ./service_gateway:/service_gateway
     links:
+      - db_autenticacao
       - api_paciente
       - api_organizacao
       - api_carteira

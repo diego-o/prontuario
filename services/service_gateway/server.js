@@ -3,7 +3,7 @@
 var http = require('http');
 const express = require('express');
 const app = express();
-var port = process.env.PORT || 80; //em cloud deve ser = 3000
+var port = process.env.PORT || 3000; //em cloud deve ser = 3000
 var swaggerJSDoc = require('swagger-jsdoc');
 var path = require('path');
 var cors = require('cors');
@@ -20,7 +20,7 @@ var swaggerDefinition = {
        version: '1.0.0.0',
        description: '',
     },
-    host: 'localhost',
+    host: '35.198.41.47',
     basePath: '/'
 };
 var options = {
