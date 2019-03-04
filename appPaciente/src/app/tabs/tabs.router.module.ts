@@ -1,3 +1,6 @@
+import { TabProntuarioPageModule } from './../tab-prontuario/tab-prontuario.module';
+import { TabCarteiraPageModule } from './../tab-carteira/tab-carteira.module';
+import { TabSobrePageModule } from './../tab-sobre/tab-sobre.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
@@ -8,42 +11,42 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'tab-prontuario',
         children: [
           {
             path: '',
-            loadChildren: '../tab1/tab1.module#Tab1PageModule'
+            loadChildren: '../tab-prontuario/tab-prontuario.module#TabProntuarioPageModule'
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'tab-carteira',
         children: [
           {
             path: '',
-            loadChildren: '../tab2/tab2.module#Tab2PageModule'
+            loadChildren: '../tab-carteira/tab-carteira.module#TabCarteiraPageModule'
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'tab-sobre',
         children: [
           {
             path: '',
-            loadChildren: '../tab3/tab3.module#Tab3PageModule'
+            loadChildren: '../tab-sobre/tab-sobre.module#TabSobrePageModule'
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/tab-prontuario',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/tab-prontuario',
     pathMatch: 'full'
   }
 ];
