@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Paciente } from '../models/paciente-model';
-import { PacienteService } from 'src/services/service-paciente/paciente.service';
+import { PacienteService } from '../services/service-paciente/paciente.service';
 
 @Component({
   selector: 'app-tab-prontuario',
