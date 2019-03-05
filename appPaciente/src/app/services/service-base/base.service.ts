@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BaseService {
+  
   private _urlBase = "http://35.198.41.47/";
 
   constructor(private http: HttpClient) { }
