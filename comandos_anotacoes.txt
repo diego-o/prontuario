@@ -56,17 +56,17 @@ mover de gegião
 
 criar comando para executar containers ao inicar server
 Crie um arquivo para seu script e escreva os comandos nele.
-	sudo nano /etc/init.d/inicar
+	sudo nano /etc/init.d/inicar.sh
 
 	comando : 
 	cd prontuario/services/ && sudo docker container start 3ad70716be09 && sudo docker-compose up -d
 
 Salve e saia: CTRL+ X, Y, ENTER
 De permissão para ser executável
-	sudo chmod 755 /etc/init.d/inicar
+	sudo chmod 755 /etc/init.d/inicar.sh
 
 Registra o script para ser executado na inicialização
-	sudo update-rc.d inicar defaults
+	sudo update-rc.d inicar.sh defaults
 
 
 	
