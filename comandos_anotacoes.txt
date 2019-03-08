@@ -30,6 +30,8 @@ Executar portainer (ps como adm)
 
 Apagrar regras iptables no linux				
 	sudo iptables -F
+Listar regras
+    sudo iptables -L
 Liberar portas no linux		
 	sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 	sudo iptables -A INPUT -p tcp --dport 81 -j ACCEPT
@@ -44,3 +46,21 @@ Liberar portas no linux
 	docker volume rm $(docker volume ls -q -f dangling=true)  
 	
 	
+
+Alterar região instancia VM (Google Cloud)
+listar regiões
+	gcloud compute zones list
+
+mover de gegião
+	gcloud compute instances move linux --zone southamerica-east1-b --destination-zone southamerica-east1-a
+
+criar comando para executar containers ao inicar server
+Crie um arquivo para seu script e escreva os comandos nele.
+	sudo nano /etc/init.d/inicar
+
+Salve e saia: CTRL+ X, Y, ENTER
+De permissão para ser executável
+	sudo chmod 755 /etc/init.d/inicar
+
+Registra o script para ser executado na inicialização
+	sudo update-rc.d inicar defaults

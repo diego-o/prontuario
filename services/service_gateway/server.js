@@ -20,7 +20,7 @@ var swaggerDefinition = {
        version: '1.0.0.0',
        description: '',
     },
-    host: '35.198.41.47',
+    host: '34.73.179.13',
     basePath: '/'
 };
 var options = {
