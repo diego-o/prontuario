@@ -26,7 +26,7 @@ Executar portainer (ps como adm)
 
 	--linux
 	docker volume create portainer_data
-	docker run -d -p 81:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+	docker run -d -p 443:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
 
 Apagrar regras iptables no linux				
 	sudo iptables -F
@@ -58,9 +58,15 @@ criar comando para executar containers ao inicar server
 Crie um arquivo para seu script e escreva os comandos nele.
 	sudo nano /etc/init.d/inicar
 
+	comando : 
+	cd prontuario/services/ && sudo docker container start 3ad70716be09 && sudo docker-compose up -d
+
 Salve e saia: CTRL+ X, Y, ENTER
 De permissão para ser executável
 	sudo chmod 755 /etc/init.d/inicar
 
 Registra o script para ser executado na inicialização
 	sudo update-rc.d inicar defaults
+
+
+	
