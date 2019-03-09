@@ -21,16 +21,101 @@
         </strong>
       </ion-col>
     </ion-row>
-    <ion-row>
+
+
+    <ion-row class="paciente-detalhe">
       <ion-col size="6">
         <p size="6">CPF: {{paciente.cpf}}</p>
       </ion-col>
       <ion-col size="6">
+        <p size="6">Sexo: {{paciente.sexo}}</p>
+      </ion-col>
+      <ion-col size="6">
         <p size="6">RG: {{paciente.rg}}</p>
+      </ion-col>
+      <ion-col size="6">
+        <p>SUS: {{paciente.carteiraSus}}</p>
+      </ion-col>
+      <ion-col size="12">
+        <p>Telefone: {{paciente.telefone}}</p>
       </ion-col>
       <ion-col size="12">
         <p size="6">Data de Nascimento: {{paciente.dataNascimento | date: 'dd/MM/yyyy'}}</p>
       </ion-col>
+
+      <div class="hr"> </div>
+
+      <ion-col size="12" class="center">
+        <strong>
+          <ion-label>Dados de Endereço (Nascimento)</ion-label>
+        </strong>
+      </ion-col>
+      <ion-col size="12" class="">
+        <p>CEP: {{paciente.endereco.nascimento.cep}}</p>
+      </ion-col>
+      <ion-col size="12">
+        <p>{{paciente.endereco.nascimento.logradouro}}, Número: {{paciente.endereco.nascimento.numero}}</p>
+      </ion-col>
+      <ion-col size="12">
+        <p>Bairro: {{paciente.endereco.nascimento.bairro}}</p>
+      </ion-col>
+      <ion-col size="12">
+        <p>Cidade: {{paciente.endereco.nascimento.municipio}}-{{paciente.endereco.nascimento.uf}}</p>
+      </ion-col>
+      <div class="hr"> </div>
+
+      <ion-col size="12" class="center">
+        <strong>
+          <ion-label>Dados de Endereço (Atual)</ion-label>
+        </strong>
+      </ion-col>
+      <ion-col size="12" class="">
+        <p>CEP: {{paciente.endereco.atual.cep}}</p>
+      </ion-col>
+      <ion-col size="12">
+        <p>{{paciente.endereco.atual.logradouro}}, Número: {{paciente.endereco.atual.numero}}</p>
+      </ion-col>
+      <ion-col size="12">
+        <p>Bairro: {{paciente.endereco.atual.bairro}}</p>
+      </ion-col>
+      <ion-col size="12">
+        <p>Cidade: {{paciente.endereco.atual.municipio}}-{{paciente.endereco.atual.uf}}</p>
+      </ion-col>
+      <div class="hr"> </div>
+
+      <ion-col size="12" class="center">
+        <strong>
+          <ion-label>Dados Materno</ion-label>
+        </strong>
+      </ion-col>
+      <ion-col size="12" class="center">
+        <p>{{paciente.mae.nome}}</p>
+      </ion-col>
+      <ion-col size="6">
+        <p>CPF: {{paciente.mae.cpf}}</p>
+      </ion-col>
+      <ion-col size="6">
+        <p>Tel.: {{paciente.mae.telefone}}</p>
+      </ion-col>
+      <div class="hr"> </div>
+
+      <ion-col size="12" class="center">
+        <strong>
+          <ion-label>Dados Paterno</ion-label>
+        </strong>
+      </ion-col>
+      <ion-col size="12" class="center">
+        <p>{{paciente.pai.nome}}</p>
+      </ion-col>
+      <ion-col size="6">
+        <p>CPF: {{paciente.pai.cpf}}</p>
+      </ion-col>
+      <ion-col size="6">
+        <p>Tel.: {{paciente.pai.telefone}}</p>
+      </ion-col>
+      <div class="hr"> </div>
+
     </ion-row>
+
   </ion-grid>
 </ion-content>

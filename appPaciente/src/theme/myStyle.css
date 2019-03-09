@@ -1,3 +1,21 @@
 .center {
     text-align: center !important;
 }
+
+.no-margim {
+    margin: 0 !important;
+}
+
+.paciente-detalhe > ion-col > p {
+    margin: 0 !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.hr {
+    border-bottom: 1px solid #ccc;
+    margin: 10px 0;
+    width: 100%;
+  }
