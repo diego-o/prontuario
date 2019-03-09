@@ -80,7 +80,19 @@ services:
       - "80:3000"
     command: bash -c "cd /service_gateway && npm i && node server"
 
+  portainer:
+    image: portainer/portainer
+    command: -H unix:///var/run/docker.sock
+    restart: always
+    ports:
+      - 443:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
 volumes:
+  portainer_data:
+  
   db-data-paciente:
   mongo-config-paciente:
 
