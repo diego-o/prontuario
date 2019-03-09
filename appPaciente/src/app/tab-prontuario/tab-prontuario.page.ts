@@ -1,6 +1,8 @@
+import { ModalController } from '@ionic/angular';
+import { Paciente } from './../../models/paciente-model';
 import { Component } from '@angular/core';
-import { Paciente } from '../models/paciente-model';
-import { PacienteService } from '../services/service-paciente/paciente.service';
+import { PacienteService } from 'src/services/service-paciente/paciente.service';
+import { ModalPacientePage } from '../modal-paciente/modal-paciente.page';
 
 @Component({
   selector: 'app-tab-prontuario',
@@ -11,7 +13,12 @@ import { PacienteService } from '../services/service-paciente/paciente.service';
 export class TabProntuarioPage {
   paciente: Paciente;
 
-  constructor(private PacienteService: PacienteService) { }
+  constructor(
+    private PacienteService: PacienteService,
+    private ModalController: ModalController
+  ) {
+    this.paciente = new Paciente();
+  }
 
   ngOnInit(): void {
     this.loadPaciente();
@@ -21,11 +28,21 @@ export class TabProntuarioPage {
     this.PacienteService.getPaciente("42721722808").subscribe(
       sucess => {
         this.paciente = sucess;
-        console.log(this.paciente);
       },
       error => {
         console.log(error);
       }
     );
+  }
+
+  async detalhesPaciente() {
+    let modal = await this.ModalController.create({
+      component: ModalPacientePage,
+      componentProps: {
+        paciente: this.paciente
+      }
+    });
+
+    return await modal.present();
   }
 }

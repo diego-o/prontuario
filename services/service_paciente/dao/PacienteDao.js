@@ -14,6 +14,7 @@ exports.Update = async(id, pac) => {
         $set: {
             dataObito: pac.dataObito,
             telefone: pac.telefone,
+            dataNascimento: pac.dataNascimento,
             rg: pac.rg,
             "endereco.atual.cep": pac.endereco.atual.cep,
             "endereco.atual.logradouro": pac.endereco.atual.logradouro,

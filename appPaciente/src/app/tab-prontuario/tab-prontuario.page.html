@@ -1,8 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Prontuário Eletrônico
-    </ion-title>
+    <ion-title>Prontuário Eletrônico</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,12 +8,12 @@
   <ion-grid>
     <ion-row>
       <ion-col size="4" offset="4">
-        <img src="../../assets/avatar.svg">
+        <img (click)="detalhesPaciente()" src="../../assets/avatar.svg">
       </ion-col>
     </ion-row>
     <ion-row align-items-center>
       <ion-col class="center">
-        <ion-label>Nome</ion-label>
+        <strong><ion-label>{{paciente.nome}}</ion-label></strong>
       </ion-col>
     </ion-row>
     <ion-row>
