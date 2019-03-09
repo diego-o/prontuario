@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class BaseService {
   
-  private _urlBase = "http://34.73.179.13/";
+  private _urlBase = "http://35.198.41.47 /";
 
   constructor(private http: HttpClient) { }
 
