@@ -17,19 +17,18 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col size="12">
+      <ion-col size="12" *ngFor="let item of atendimentos">
         <ion-card>
           <ion-card-header>
-            <ion-card-subtitle>Atendimento</ion-card-subtitle>
+            <ion-card-subtitle>Atendimento: {{item.numero}}</ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
-            <ion-label>Data:</ion-label><br>
-            <ion-label>Organização:</ion-label><br>
-            <ion-label>Tipo Atendimento:</ion-label><br>
+            <ion-label>Data: {{item.dataPrevista | date:'dd/MM/yyyy'}}</ion-label><br>
+            <ion-label>Organização: {{item.organizacao.nome}}</ion-label><br>
+            <ion-label>Tipo Atendimento: {{item.tipo.tipo}}</ion-label><br>
           </ion-card-content>
         </ion-card>
-      </ion-col>
-      
+      </ion-col>      
     </ion-row>
   </ion-grid>
 </ion-content>

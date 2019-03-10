@@ -30,11 +30,19 @@ exports.GetByNumero = async (numero) => {
 }
 
 exports.GetByCpfPaciente = async (cpf) => {
-    var atendimentos = await Atendimento.find({"paciente.cpf" : cpf}, '').populate('status').populate('tipo');
+    var atendimentos = await Atendimento.find({"paciente.cpf" : cpf}, '')
+        .sort({dataPrevista: 1})
+        .populate('status')
+        .populate('tipo');
+
     return atendimentos;
 }
 
 exports.GetByCnpjOrganizacao = async (cnpj) => {
-    var atendimentos = await Atendimento.find({"organizacao.cnpj" : cnpj}, '').populate('status').populate('tipo');
+    var atendimentos = await Atendimento.find({"organizacao.cnpj" : cnpj}, '')
+        .sort({dataPrevista: 1})
+        .populate('status')
+        .populate('tipo');
+
     return atendimentos;
 }

@@ -19,7 +19,6 @@ export class ModalPacientePage {
 
   ngOnInit() {
     this.paciente = this.NavParams.get('paciente');
-    console.log(this.paciente);
   }
 
   closeModal() {

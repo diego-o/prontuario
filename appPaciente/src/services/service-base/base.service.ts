@@ -11,15 +11,15 @@ export class BaseService {
 
   constructor(private http: HttpClient) { }
 
-  get<TClass>(endPoint: string) : Observable<TClass> {
+  protected get<TClass>(endPoint: string) : Observable<TClass> {
     return this.http.get<TClass>(this.normalizeUrl(endPoint));
   }
 
-  post<TClass>(endPoint: string, body: any) : Observable<TClass> {
+  protected post<TClass>(endPoint: string, body: any) : Observable<TClass> {
     return this.http.post<TClass>(this.normalizeUrl(endPoint), body);
   }
 
-  put<TClass>(endPoint: string, body: any) : Observable<TClass> {
+  protected put<TClass>(endPoint: string, body: any) : Observable<TClass> {
     return this.http.put<TClass>(this.normalizeUrl(endPoint), body);
   }
 

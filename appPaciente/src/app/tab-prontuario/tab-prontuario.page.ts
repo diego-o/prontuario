@@ -3,6 +3,8 @@ import { Paciente } from './../../models/paciente-model';
 import { Component } from '@angular/core';
 import { PacienteService } from 'src/services/service-paciente/paciente.service';
 import { ModalPacientePage } from '../modal-paciente/modal-paciente.page';
+import { Atendimento } from 'src/models/atendimento-model';
+import { ProntuarioService } from 'src/services/service-prontuario/prontuario.service';
 
 @Component({
   selector: 'app-tab-prontuario',
@@ -12,12 +14,16 @@ import { ModalPacientePage } from '../modal-paciente/modal-paciente.page';
 
 export class TabProntuarioPage {
   paciente: Paciente;
+  atendimentos: Atendimento[];
 
   constructor(
     private PacienteService: PacienteService,
+    private ProntuarioServie: ProntuarioService,
     private ModalController: ModalController
   ) {
     this.paciente = new Paciente();
+    this.atendimentos = new Array<Atendimento>();
+    this.atendimentos.push(new Atendimento());
   }
 
   ngOnInit(): void {
@@ -28,6 +34,7 @@ export class TabProntuarioPage {
     this.PacienteService.getPaciente("42721722808").subscribe(
       sucess => {
         this.paciente = sucess;
+        this.listarAtendimentos();
       },
       error => {
         console.log(error);
@@ -44,5 +51,17 @@ export class TabProntuarioPage {
     });
 
     return await modal.present();
+  }
+
+  listarAtendimentos() {
+    this.ProntuarioServie.atendimentos(this.paciente.cpf).subscribe(
+      sucess => {
+        this.atendimentos = sucess;
+        console.log(this.atendimentos);
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
 }
