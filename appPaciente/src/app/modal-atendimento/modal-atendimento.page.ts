@@ -23,6 +23,7 @@ export class ModalAtendimentoPage implements OnInit {
 
   ngOnInit() {
     this._atendimento = this.NavParams.get('atendimento');
+    console.log(this._atendimento);
   }
 
   closeModal(){

@@ -6,11 +6,15 @@ export class Atendimento {
     organizacao: Organizacao;
     tipo: TipoAtendimento;
     status: StatusAtendimento;
+    paciente: PacienteAtendimento;
+    medico: Medico;
 
     constructor () {
         this.organizacao = new Organizacao();
         this.tipo = new TipoAtendimento();
         this.status = new StatusAtendimento();
+        this.paciente = new PacienteAtendimento();
+        this.medico = new Medico();
     }
 }
 
@@ -27,4 +31,15 @@ export class TipoAtendimento {
 export class StatusAtendimento {
     status: string;
     descricao: string;
+}
+
+export class PacienteAtendimento {
+    nome: string;
+    carteiraSus: string;
+    cpf: string;
+}
+
+export class Medico {
+    crm: string;
+    nome: string;
 }

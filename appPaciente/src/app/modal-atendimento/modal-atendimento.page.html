@@ -9,6 +9,63 @@
 
 <ion-content padding>
   <ion-grid>
-    <p>Detalhes atendimento</p>
+    <ion-row class="paciente-detalhe">
+      <ion-col size="12">
+        <strong>
+          <ion-label>Dados Atendimento:</ion-label>
+        </strong>
+      </ion-col>
+      <ion-col size="12">
+        <p>Número do Atendimento: {{Atendimento.numero}}</p>
+      </ion-col>
+      <ion-col size="12">
+        <p>Data Prevista: {{Atendimento.dataPrevista | date:'dd/MM/yyyy'}}</p>
+      </ion-col>
+      <ion-col size="12">
+        <p>Data Atendimento: {{Atendimento.dataAtendimento | date:'dd/MM/yyyy'}}</p>
+      </ion-col>
+      <ion-col size="12">
+        <p>Status: {{Atendimento.status.status}}</p>
+      </ion-col>
+      <ion-col size="12">
+        <p>Tipo: {{Atendimento.tipo.tipo}}</p>
+      </ion-col>
+      <div class="hr"> </div>
+
+      <ion-col size="12">
+        <strong>
+          <ion-label>Organização:</ion-label>
+        </strong>
+      </ion-col>
+      <ion-col size="12">
+        <p>Nome: {{Atendimento.organizacao.nome}}</p>
+      </ion-col>
+      <ion-col size="12">
+        <p>CNPJ: {{Atendimento.organizacao.cnpj}}</p>
+      </ion-col>
+      <div class="hr"> </div>
+
+      <ion-col size="12">
+        <strong>
+          <ion-label>Médico:</ion-label>
+        </strong>
+      </ion-col>
+      <ion-col size="12">
+        <p>Nome: {{Atendimento.medico?.nome}}</p>
+      </ion-col>
+      <ion-col size="12">
+        <p>CRM: {{Atendimento.medico?.crm}}</p>
+      </ion-col>
+      <div class="hr"> </div>
+
+      <ion-col size="12">
+        <strong>
+          <ion-label>Descrição:</ion-label>
+        </strong>
+      </ion-col>
+      <ion-col size="12">
+        <p class="ion-text-justify">{{Atendimento.descricao}}</p>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>

@@ -1,3 +1,4 @@
+import { ModalAtendimentoPage } from './../modal-atendimento/modal-atendimento.page';
 import { ModalController } from '@ionic/angular';
 import { Paciente } from './../../models/paciente-model';
 import { Component } from '@angular/core';
@@ -53,11 +54,21 @@ export class TabProntuarioPage {
     return await modal.present();
   }
 
+  async detalhesAtendimento(atend: Atendimento) {
+    let modal = await this.ModalController.create({
+      component: ModalAtendimentoPage,
+      componentProps: {
+        atendimento: atend
+      }
+    });
+
+    return await modal.present();
+  }
+
   listarAtendimentos() {
     this.ProntuarioServie.atendimentos(this.paciente.cpf).subscribe(
       sucess => {
         this.atendimentos = sucess;
-        console.log(this.atendimentos);
       },
       error => {
         console.log(error);

@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TabProntuarioPage } from './tab-prontuario.page';
 import { ModalPacientePage } from '../modal-paciente/modal-paciente.page';
+import { ModalAtendimentoPage } from '../modal-atendimento/modal-atendimento.page';
 
 @NgModule({
   imports: [
@@ -13,7 +14,14 @@ import { ModalPacientePage } from '../modal-paciente/modal-paciente.page';
     FormsModule,
     RouterModule.forChild([{ path: '', component: TabProntuarioPage }])
   ],
-  declarations: [TabProntuarioPage, ModalPacientePage],
-  entryComponents: [ModalPacientePage]
+  declarations: [
+    TabProntuarioPage, 
+    ModalPacientePage,
+    ModalAtendimentoPage
+  ],
+  entryComponents: [
+    ModalPacientePage,
+    ModalAtendimentoPage
+  ]
 })
 export class TabProntuarioPageModule {}

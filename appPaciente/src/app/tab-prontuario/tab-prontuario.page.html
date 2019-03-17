@@ -18,7 +18,7 @@
     </ion-row>
     <ion-row>
       <ion-col size="12" *ngFor="let item of atendimentos">
-        <ion-card>
+        <ion-card (click)="detalhesAtendimento(item)">
           <ion-card-header>
             <ion-card-subtitle>Atendimento: {{item.numero}}</ion-card-subtitle>
           </ion-card-header>
