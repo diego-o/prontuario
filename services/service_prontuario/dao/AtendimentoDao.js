@@ -9,12 +9,16 @@ exports.Insert = async (atendimento) => {
 }
 
 exports.Update = async(id, atendimento) => {
+    console.log(atendimento);
     return await Atendimento.findByIdAndUpdate(id, {
         $set:{
             status: atendimento.status,
             tipo: atendimento.tipo,
             dataAtendimento: atendimento.dataAtendimento,
-            descricao: atendimento.descricao
+            descricao: atendimento.descricao,
+            "medico.idMedico" : atendimento.medico != undefined ? atendimento.medico.idMedico : null,
+            "medico.nome" : atendimento.medico != undefined ? atendimento.medico.nome : null,
+            "medico.crm" : atendimento.medico != undefined ? atendimento.medico.crm : null
         }
     });
 }
