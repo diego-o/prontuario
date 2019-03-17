@@ -56,11 +56,10 @@ exports.Update = async (req, res, next) => {
     try {
         if (req.body.medico != undefined) {
             let atendimento = req.body;
-            let Medico = atendimento.medico;
             if (Medico.idMedico == undefined) {
                 res.status(500).send({ Message: 'IdMedico não fornecido.', Data: null });
             } else {
-                OrganizacaoService.Get("organizacao/medico/"+Medico.idMedico, async function(med) {
+                OrganizacaoService.Get("organizacao/medico/"+atendimento.medico.idMedico, async function(med) {
                     if (med == null) {
                         res.status(500).send({ Message: 'Erro ao alterar atendimento.',  Data: 'idMedico não encontrado.' });
                     } else {
@@ -71,7 +70,6 @@ exports.Update = async (req, res, next) => {
                             var atendimentoalterado = await Dao.Update(req.params.id, atendimento);
                             res.status(200).send(atendimentoalterado);
                         } catch (error) {
-                            console.log(error);
                             res.status(500).send({ Message: 'Erro ao alterar atendimento.', Data: error });
                         }
                     }
@@ -82,7 +80,6 @@ exports.Update = async (req, res, next) => {
             res.status(200).send(atendimento);
         }
     } catch (error) {
-        console.log(error);
         res.status(500).send({ Message: 'Erro ao alterar atendimento.', Data: error });
     }     
 }

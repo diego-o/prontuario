@@ -9,9 +9,8 @@ exports.Insert = async (atendimento) => {
 }
 
 exports.Update = async(id, atendimento) => {
-    console.log(atendimento);
     return await Atendimento.findByIdAndUpdate(id, {
-        $set:{
+        $set: {
             status: atendimento.status,
             tipo: atendimento.tipo,
             dataAtendimento: atendimento.dataAtendimento,
