@@ -9,11 +9,11 @@ import { Paciente } from 'src/models/paciente-model';
 })
 export class PacienteService extends BaseService {
 
-  constructor(http: HttpClient) { 
+  constructor(http: HttpClient) {
     super(http)
   }
 
-  public getPaciente(cpf: string) : Observable<Paciente>  {
+  public getPaciente(cpf: string): Observable<Paciente> {
     return this.get<Paciente>("paciente/cpf/" + cpf);
   }
 }

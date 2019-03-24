@@ -282,5 +282,25 @@ exports.Add = function(app){
      */
     app.get('/carteiravacina/numerocarteira/:numerocarteira', (req, res, next) => { ServiceCarteira(req, res, next) });
 
+    /**
+     * @swagger
+     * /carteiravacina/cpf/{cpf}:
+     *   get:
+     *     tags:
+     *       - CarteiraVacina
+     *     description: Consultar CarteiraVacina pelo CPf do paciente
+     *     produces:
+     *       - application/json
+     *     parameters:
+     *       - name: cpf
+     *         in: path
+     *         required: true
+     *         type: string
+     *     responses:
+     *       200:
+     *         description: Objeto CarteiraVacina
+     */
+    app.get('/carteiravacina/cpf/:cpf', (req, res, next) => { ServiceCarteira(req, res, next) });
+
     
 }

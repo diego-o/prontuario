@@ -12,4 +12,5 @@ module.exports = function(app) {
         .put(Controller.Update);
 
     app.route('/carteiravacina/numerocarteira/:numero').get(Controller.GetByNumeroCarteira);
+    app.route('/carteiravacina/cpf/:cpf').get(Controller.GetByCpf);
 }

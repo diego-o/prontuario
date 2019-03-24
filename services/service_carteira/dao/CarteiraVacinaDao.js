@@ -29,6 +29,15 @@ exports.GetByNumeroCarteira = async(numero) => {
         });
 }
 
+exports.GetByCpf = async(cpf) => {
+    return await CarteiraVacina.find({}, 'vacina organizacao')
+        .populate({
+            path: 'carteira',
+            select: 'paciente numero',
+            match: {"paciente.cpf" : cpf}
+        });
+}
+
 exports.GetAll = async() => {
     return await CarteiraVacina.find({}, '').populate('carteira');
 }
