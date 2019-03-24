@@ -29,15 +29,15 @@
     </ion-row>
     <ion-row>
       <ion-col size="12">
-        <ion-card *ngFor="let item of carteira.vacinas" >
+        <ion-card *ngFor="let item of carteira.vacinas" (click)="Detalhes(item)" >
           <ion-card-header>
             <ion-card-subtitle><strong>Vacina: {{item.vacina.nome}}</strong></ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
-            <ion-label>Situação: {{item.aplicacao.aplicada}</ion-label><br>
+            <ion-label>Situação: {{item.aplicacao.aplicada}}</ion-label><br>
             <ion-label>Data Aplicação: {{item.aplicacao.dataAplicacao | date:'dd/MM/yyyy'}}</ion-label><br>
             <ion-label>Local: {{item.organizacao.nome}}</ion-label><br>
-            <ion-label>Detalhes...</ion-label><br>
+            <app-acordion></app-acordion>
           </ion-card-content>
         </ion-card>
       </ion-col>      

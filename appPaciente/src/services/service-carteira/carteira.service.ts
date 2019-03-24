@@ -13,7 +13,7 @@ export class CarteiraService extends BaseService {
     super(HttpClient);
   }
 
-  public carteira(numeroCarteira: string): Observable<Carteira> {
-    return this.get<Carteira>("carteiravacina/numerocarteira/" + numeroCarteira);
+  public carteira(cpf: string): Observable<Carteira> {
+    return this.get<Carteira>("carteiravacina/cpf/" + cpf);
   }
 }
