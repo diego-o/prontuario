@@ -1,9 +1,34 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>Prontuário Eletrônico</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <div text-center>
+          <h4>Autenticação</h4>
+        </div>
+        <div padding>
+          <ion-item>
+            <ion-input type="text" placeholder="CPF" [(ngModel)]="usuario.cpf"></ion-input>
+          </ion-item>
 
+          <ion-item>
+            <ion-input type="password" placeholder="Senha" [(ngModel)]="usuario.senha"></ion-input>
+          </ion-item>
+        </div>
+
+        <div padding>
+          <ion-button size="large" expand="block" (click)="Logar()">Entrar</ion-button>
+        </div>
+
+        <div text-center>
+          <h4>{{message}}</h4>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

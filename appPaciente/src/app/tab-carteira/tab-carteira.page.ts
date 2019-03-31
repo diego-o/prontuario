@@ -1,5 +1,5 @@
 import { Carteira } from './../../models/carteira-model';
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Paciente } from 'src/models/paciente-model';
 import { PacienteService } from 'src/services/service-paciente/paciente.service';
 import { CarteiraService } from 'src/services/service-carteira/carteira.service';
@@ -27,22 +27,14 @@ export class TabCarteiraPage implements OnInit {
   }
 
   loadPaciente() {
-    this.PacienteService.getPaciente("42721722808").subscribe(
-      sucess => {
-        this.paciente = sucess;
-        this.loadCarteira();
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    this.paciente = this.PacienteService.Paciente;
+    this.loadCarteira();
   }
 
   loadCarteira() {
-    this.CarteiraService.carteira("42721722808").subscribe(
+    this.CarteiraService.carteira(this.paciente.cpf).subscribe(
       sucess => {
         this.carteira = sucess;
-        console.log(this.carteira);
       },
       error => {
         console.log(error);

@@ -10,13 +10,18 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { ModalPacientePage } from './modal-paciente/modal-paciente.page';
+import { ModalAtendimentoPage } from './modal-atendimento/modal-atendimento.page';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ModalPacientePage,
+    ModalAtendimentoPage
   ],
   entryComponents: [
-    
+    ModalPacientePage,
+    ModalAtendimentoPage
   ],
   imports: [
     BrowserModule, 

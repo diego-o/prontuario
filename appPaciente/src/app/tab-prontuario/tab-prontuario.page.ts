@@ -32,15 +32,8 @@ export class TabProntuarioPage {
   }
 
   loadPaciente() {
-    this.PacienteService.getPaciente("42721722808").subscribe(
-      sucess => {
-        this.paciente = sucess;
-        this.listarAtendimentos();
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    this.paciente = this.PacienteService.Paciente;
+    this.listarAtendimentos();
   }
 
   async detalhesPaciente() {
